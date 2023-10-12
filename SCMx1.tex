@@ -515,19 +515,85 @@ Usually, ownership implies possession of the items, and in such cases, the units
 inventory can be straightforwardly counted.
 \breakspace
 However, there are situations where ownership doesn't necessarily  mean direct possession. Two of these 
-notable exceptions are:
-\breakspace
-\textbf{Consignments:} In a consignment arrangement, the \textit{consignor} transfers inventory to a
-\textit{consignee}, such as a retailer, who physically holds and sells the items. While the consignor
-retains full ownership, the consignee, after selling, keeps a service fee and remits the rest of the
-proceeds to the consignor.
-\breakspace
-\textbf{Goods in Transit:}
-\breakspace
-\textbf{FOB:}
+notable exceptions are: Consignments and Goods in Transit.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=1mm, auto, font=\tiny]
+		\node[draw=red, minimum width=2cm, minimum height=1cm] (rect1) {$123$};
+	\end{tikzpicture}
+\end{figure}
 }
 
-\subsubsectionbox{Costs to attach}{}{
+\subsubsectionbox{Consignments}{}{In a consignment arrangement, the \textit{consignor} transfers inventory to a
+\textit{consignee}, such as a retailer, who physically holds and sells the items. While the consignor
+retains full ownership, the consignee, after selling, keeps a service fee and remits the rest of the
+proceeds to the consignor. Inventory is only included in the consignor's balance sheet.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{sankeydiagram}
+	\sffamily
+	\sankeyset{
+		ratio=1cm/10,
+		outin steps=2,
+		draw/.style={draw=none, line width=0.1pt},
+		color/.style={fill/.style={fill=#1, fill opacity=.99}},
+		shade/.style 2 args={fill/.style={left color=#1, right color=#2, fill opacity=.75}},
+		% colors
+		@define HTML color/.code args={#1/#2}{\definecolor{#1}{HTML}{#2}},
+		@define HTML color/.list={
+			cyan/a6cee3, lime/b2df8a, red/fb9a99, orange/fdbf6f,
+			violet/cab2d6, yellow/ffff99, blue/1f78b4, green/33a02c
+		},
+	}
+	\def\vdist{5mm}
+	\def\hwidth{.5em}
+	\def\hdist{2cm}
+
+	\sankeynode{name=consignor, quantity=4}
+	\sankeyadvance[color=black]{consignor}{2em}
+	\sankeyfork{consignor}{1.5/consignor-to-consignee2, 2.5/consignor-to-consignee1}
+
+	\sankeynode{name=consignee1, quantity=2.5, at={[xshift=3cm, yshift=-0.05cm]consignor.right}, anchor=right}
+	\sankeynode{name=consignee2, quantity=1.5, at={[yshift=0.1cm]consignee1.left}, anchor=right}
+	\sankeyfork{consignee1}{2.5/consignee1-from-consignor}
+	\sankeyfork{consignee2}{1.5/consignee2-from-consignor}
+	\sankeyadvance[color=black]{consignee1}{1.5em}
+	\sankeyadvance[color=black]{consignee2}{1.5em}
+	\sankeyfork{consignee1}{2.5/consignee1-to-customer}
+	\sankeyfork{consignee2}{1.5/consignee2-to-customer}
+
+	\sankeynode{name=customer,  quantity=4, at={[xshift=3cm, yshift=0.05cm]consignee1.right}, anchor=right}
+	\sankeyfork{customer}{1.5/customer-from-consignee2, 2.5/customer-from-consignee1}
+	\sankeyadvance[color=black]{customer}{2em}
+		
+	\sankeyoutin[shade={gray!70}{cyan!70}]{consignor-to-consignee1}{consignee1-from-consignor}
+	\sankeyoutin[shade={gray!70}{green!70}]{consignor-to-consignee2}{consignee2-from-consignor}
+	\sankeyoutin[shade={cyan!70}{gray!70}]{consignee1-to-customer}{customer-from-consignee1}
+	\sankeyoutin[shade={green!70}{gray!70}]{consignee2-to-customer}{customer-from-consignee2}
+
+	% \node[anchor=west, inner sep=.1em, font=\tiny] at (consignor) {Consignor};
+	% \node[anchor=west, inner sep=.1em, font=\tiny, align=left] at (consignee) {Consignee\\(e.g. retailer)};
+	% \node[anchor=west, inner sep=.1em, font=\tiny] at (customer) {Customer};
+
+	\end{sankeydiagram}
+\end{tikzpicture}
+\end{figure}
+}
+
+\subsubsectionbox{Goods in Transit}{}{
+Theoretically, both a seller and a buyer should record a transaction simultaneously. However, in practice,
+most sales are recorded when goods are shipped, while purchases are typically recorded upon receipt of the goods.
+This method is generally acceptable, unless there are \textit{goods in transit} at the end of an accounting period.
+\breakspace
+To properly account for such transactions, it's essential to determine the ownership of the goods while they
+are in transit. Freight shipping terms like FOB (free on board) serve this purpose. This term is commonly used 
+in domestic shipping within the U.S., and should not be confused
+with the FOB term from the International Commercial Terms, INCOTERMS {\sffamily\textregistered} 2020.
+}
+
+\subsubsectionbox{Costs to Attach}{}{
 Foo
 }
 

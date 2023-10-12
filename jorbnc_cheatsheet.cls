@@ -39,6 +39,7 @@
 \RequirePackage[autostyle=true]{csquotes} % Loads the correct quotation characters for \textquote{}, works wth babel
 \RequirePackage{pifont} % \ding{} symbol in the itemize environment
 \RequirePackage{ragged2e}
+\RequirePackage{textcomp} % For the (R) symbol of text registered ---> \textregistered
 
 % ===== COLORS ========================================================================================
 \RequirePackage[dvipsnames]{xcolor} % Extra colors https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
@@ -67,6 +68,7 @@
   \usetikzlibrary{
     calc, patterns, positioning, arrows.meta, petri, positioning, calligraphy, math, angles, quotes
   }
+\RequirePackage{sankey}
 
 % ===== BIBLIOGRAPHY & REFERENCES =======================================================================
 \RequirePackage[backend    = biber,
