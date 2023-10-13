@@ -272,13 +272,21 @@
 \newcommand{\AND}{\textcolor{blue!70!black}{\;\,\land\;\,}}
 \newcommand{\OR}{\textcolor{blue!70!black}{\;\,\lor\;\,}}
 \newcommand{\ldraw}{black}
-% Blue
+\newcommand{\breakspace}{\par\vspace{1.5mm}}
+
+% Colors for text
 \newcommand{\Blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\BlueA}[1]{\textcolor{NavyBlue}{#1}}
 \newcommand{\Red}[1]{\textcolor{red}{#1}}
-\definecolor{RedFigA}{HTML}{ff3246}
 \newcommand{\Green}[1]{\textcolor{green!70!black}{#1}}
+
+% Flow color
+\definecolor{MoneyFlow}{RGB}{0,179,0} % RGB(0, 255*70% + 0*30%, 0) or equivalent to green!70!black
+\definecolor{InfoFlow}{RGB}{0,110,184} % NavyBlue in RGB
+\definecolor{MaterialFlow}{HTML}{00ff34}
+
+% Other colors
+\definecolor{RedFigA}{HTML}{ff3246}
 \definecolor{GreenFigA}{HTML}{00ff34}
-\newcommand{\breakspace}{\par\vspace{1.5mm}}
 
 

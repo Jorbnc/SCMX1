@@ -204,23 +204,23 @@ The blended result of these contributions is called the \textbf{capital structur
 			projects, or assets to generate profits};
 	
 		% Arrows connecting the two big rectangles
-		\draw[-{Stealth[length=2mm]}] ([yshift=0.65cm]rect2.south west) -- 
+		\draw[-{Stealth[length=1.5mm]}, InfoFlow] ([yshift=0.65cm]rect2.south west) -- 
 			node[above, yshift=0.05cm, align=left, font=\tiny]
 				{Historical and prospective\\
 				information of how it expects to\\
 				use the capital to create returns}
 			([yshift=0.65cm]rect1.south east);
-		\draw[-{Stealth[length=2mm]}] ([yshift=0.25cm]rect1.south east) --
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow] ([yshift=0.25cm]rect1.south east) --
 			node[above, yshift=-0.5mm, align=center, font=\tiny]
 				{Capital}
 			([yshift=0.25cm]rect2.south west);
 
-		\draw[-{Stealth[length=2mm]}] ([xshift=4mm]rect2.south west) --
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow] ([xshift=4mm]rect2.south west) --
 			++(0,-0.525cm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
 				{Debt payments\\
 			 	Dividends, Stock buybacks}
 			 (rect1.south);
-		\draw[-{Stealth[length=2mm]}] ([xshift=7mm]rect2.south west) --
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow] ([xshift=7mm]rect2.south west) --
 			++(0,-0.525cm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
 				{Reinvestment}
 			([xshift=-4mm]rect2.south east);
@@ -535,12 +535,21 @@ proceeds to the consignor. Inventory is only included in the consignor's balance
 		\tikzstyle{Rect}=[draw, rectangle, minimum height=0.4cm, minimum width=1cm, fill=none,
 			rounded corners=0.5mm, inner sep=0pt];
 		\node[Rect] (consignor) {Consignor};
-		\node[Rect, right=1.5cm of consignor.east, anchor=west] (consignee) {Consignee};
+		\node[Rect, minimum width=1.5cm, right=1.5cm of consignor.east, anchor=west] (consignee) {Consignee};
 		\node[Rect, right=1.5cm of consignee.east, anchor=west] (customer) {Customer};
-		\draw[-{Stealth[length=1mm]}] ([yshift=0.8mm]consignor.east) -- ([yshift=0.8mm]consignee.west);
-		\draw[-{Stealth[length=1mm]}] ([yshift=0.8mm]consignee.east) -- ([yshift=0.8mm]customer.west);
-		\draw[-{Stealth[length=1mm]}, green!70!black] ([yshift=-0.8mm]customer.west) -- ([yshift=-0.8mm]consignee.east);
-		\draw[-{Stealth[length=1mm]}, green!70!black] ([yshift=-0.8mm]consignee.west) -- ([yshift=-0.8mm]consignor.east);
+		\draw[-{Stealth[length=1mm]}] ([yshift=0mm]consignor.east) -- 
+			node[pos=0.5, above, yshift=-0.2mm, align=left, font=\tiny] {Consignment} ([yshift=0mm]consignee.west);
+		\draw[-{Stealth[length=1mm]}] ([yshift=0mm]consignee.east) -- 
+			node[pos=0.5, above, yshift=-0.2mm, align=left, font=\tiny] {Sales} ([yshift=0mm]customer.west);
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.5mm] ([xshift=0mm]customer.south) -- 
+			++(0,-3mm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
+			{Revenue 100\%} ([xshift=6mm]consignee.south);
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.1mm] ([xshift=+3mm]consignee.south) -- 
+			++(0,-3mm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
+			{20\%}([xshift=-3mm]consignee.south);
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.4mm] ([xshift=-6mm]consignee.south) -- 
+			++(0,-3mm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
+			{80\%} (consignor.south);
 	\end{tikzpicture}
 \end{figure}
 }
@@ -604,7 +613,7 @@ cash inflows through its core operations.
 			
 			% Edges and Arcs
 			\draw[-, NavyBlue] (0,0) [partial ellipse=81:51:2cm and 1cm]; % The center of the ellipse is at (0,0)
-			\draw[->, NavyBlue] (0,0) [partial ellipse=25:-23:2cm and 1cm];
+			\draw[->, InfoFlow] (0,0) [partial ellipse=25:-23:2cm and 1cm];
 			\draw[-, NavyBlue] (0,0) [partial ellipse=-48:-81:2cm and 1cm];
 			\draw[->, NavyBlue] (0,0) [partial ellipse=-99:-125:2cm and 1cm];
 			\draw[-, NavyBlue] (0,0) [partial ellipse=-161:-205:2cm and 1cm];
