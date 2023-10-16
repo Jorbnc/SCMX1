@@ -516,42 +516,40 @@ inventory can be straightforwardly counted.
 \breakspace
 However, there are situations where ownership doesn't necessarily  mean direct possession. Two of these 
 notable exceptions are: Consignments and Goods in Transit.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance=1mm, auto, font=\tiny]
-		\node[draw=red, minimum width=2cm, minimum height=1cm] (rect1) {$123$};
-	\end{tikzpicture}
-\end{figure}
 }
 
 \subsubsectionbox{Consignments}{}{In a consignment arrangement, the \textit{consignor} transfers inventory to a
 \textit{consignee}, such as a retailer, who physically holds and sells the items. While the consignor
 retains full ownership, the consignee, after selling, keeps a service fee and remits the rest of the
-proceeds to the consignor. Inventory is only included in the consignor's balance sheet.
+proceeds to the consignor. 
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=1mm, auto, font=\tiny]
 		\tikzstyle{Rect}=[draw, rectangle, minimum height=0.4cm, minimum width=1cm, fill=none,
 			rounded corners=0.5mm, inner sep=0pt];
+		% Main nodes
 		\node[Rect] (consignor) {Consignor};
-		\node[Rect, minimum width=1.5cm, right=1.5cm of consignor.east, anchor=west] (consignee) {Consignee};
+		\node[Rect, minimum width=1.5cm, minimum height=0.5cm, right=1.5cm of consignor.east,
+			anchor=west, align=center] (consignee) {Consignee\\(e.g retailer)};
 		\node[Rect, right=1.5cm of consignee.east, anchor=west] (customer) {Customer};
+		
 		\draw[-{Stealth[length=1mm]}] ([yshift=0mm]consignor.east) -- 
-			node[pos=0.5, above, yshift=-0.2mm, align=left, font=\tiny] {Consignment} ([yshift=0mm]consignee.west);
+			node[pos=0.5, above, yshift=-0.2mm, align=center, font=\tiny] {Consignment \\ inventory} 
+			([yshift=0mm]consignee.west);
 		\draw[-{Stealth[length=1mm]}] ([yshift=0mm]consignee.east) -- 
 			node[pos=0.5, above, yshift=-0.2mm, align=left, font=\tiny] {Sales} ([yshift=0mm]customer.west);
-		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.5mm] ([xshift=0mm]customer.south) -- 
+
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.25mm] ([xshift=0mm]customer.south) -- 
 			++(0,-3mm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
-			{Revenue 100\%} ([xshift=6mm]consignee.south);
-		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.1mm] ([xshift=+3mm]consignee.south) -- 
+			{Revenue 100\%} ([xshift=3mm]consignee.south);
+		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.20mm] ([xshift=-3mm]consignee.south) -- 
 			++(0,-3mm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
-			{20\%}([xshift=-3mm]consignee.south);
-		\draw[-{Stealth[length=1.5mm]}, MoneyFlow, line width=0.4mm] ([xshift=-6mm]consignee.south) -- 
-			++(0,-3mm) -| node[pos=0.25, above, yshift=-0.2mm, align=left, font=\tiny]
-			{80\%} (consignor.south);
+			{Revenue 80\%} (consignor.south);
 	\end{tikzpicture}
 \end{figure}
+
+Inventory should only be disclosed in the consignor's balance sheet.
 }
 
 \subsubsectionbox{Goods in Transit}{}{
@@ -563,6 +561,39 @@ To properly account for such transactions, it's essential to determine the owner
 are in transit. Freight shipping terms like FOB (free on board) serve this purpose. This term is commonly used 
 in domestic shipping within the U.S., and should not be confused
 with the FOB term from the International Commercial Terms, INCOTERMS {\sffamily\textregistered} 2020.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=0mm, auto, font=\tiny]
+		\tikzstyle{Rect}=[draw, rectangle, minimum height=0.35cm, minimum width=0.8cm, fill=none,
+			inner sep=0pt, line width=0.0005mm, xshift=-0.1mm];
+		\def\scolor{LimeGreen!65!white}
+		\def\bcolor{Goldenrod!65!white}
+
+		\node[Rect, fill=\scolor] (seller) {Seller};
+		\node[Rect, right=of seller.east, anchor=west, minimum width=2.5cm, fill=\bcolor]
+			(shipment) {shipment};
+		\node[Rect, right=of shipment.east, anchor=west, fill=\bcolor] (buyer) {Buyer};
+		\node[draw=none, inner sep=0pt, left=of seller.west, anchor=east, xshift=-2mm]
+			(fobship) {FOB shipping point};
+
+		\node[Rect, below=of seller.south, anchor=north, yshift=-10mm, xshift=0.1mm, fill=\scolor]
+			(seller2) {Seller};
+		\node[Rect, right=of seller2.east, anchor=west, minimum width=2.5cm, fill=\scolor]
+			(shipment2) {shipment};
+		\node[Rect, right=of shipment2.east, anchor=west, fill=\bcolor] (buyer2) {Buyer};
+		\node[draw=none, inner sep=0pt] at (fobship |- seller2)
+			(fobdest) {FOB destination};
+		
+		\draw[-, line width=0.05mm] (shipment.south) -- (shipment2.north);
+		\path (shipment.south west) -- (shipment2.north west)
+			node[draw=none, fill=gray!3, inner sep=0pt, minimum width=4cm, midway, align=left]
+			(endofperiod) {
+				End of the accounting period:\\
+				FOB shipping: Both a sale and a purchase should be recorded\\
+				FOB destination: Neither a sale nor a purchase should be recorded};
+		
+	\end{tikzpicture}
+\end{figure}
 }
 
 \subsubsectionbox{Costs to Attach}{}{
