@@ -564,8 +564,8 @@ with the FOB term from the International Commercial Terms, INCOTERMS {\sffamily\
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=0mm, auto, font=\tiny]
-		\tikzstyle{Rect}=[draw, rectangle, minimum height=0.35cm, minimum width=0.8cm, fill=none,
-			inner sep=0pt, line width=0.0005mm, xshift=-0.1mm];
+		\tikzstyle{Rect}=[draw=none, rectangle, minimum height=0.35cm, minimum width=0.8cm, fill=none,
+			inner sep=0pt, line width=0.0005mm, xshift=0mm];
 		\def\scolor{LimeGreen!65!white}
 		\def\bcolor{Goldenrod!65!white}
 
@@ -584,6 +584,7 @@ with the FOB term from the International Commercial Terms, INCOTERMS {\sffamily\
 		\node[draw=none, inner sep=0pt] at (fobship |- seller2)
 			(fobdest) {FOB destination};
 		
+		\draw[-, line width=0.0001mm] (seller.north east) -- (seller.south east);
 		\draw[-, line width=0.05mm] (shipment.south) -- (shipment2.north);
 		\path (shipment.south west) -- (shipment2.north west)
 			node[draw=none, fill=gray!3, inner sep=0pt, minimum width=4cm, midway, align=left]
