@@ -473,16 +473,6 @@ capital derived from borrowings or owner contributions.
 
 \subsection{Accounting for Inventory}
 
-\subsubsectionbox{The Inventory Accounting Flow/Cycle}{pratt2010financial}{
-Create a flowchart (rather than a cycle figure) for this:
-\begin{itemize}
-	\item Acquisition: Purchase or Manufacture
-	\item Carrying Inventory: Periodic or Perpetual Methods
-	\item Selling Invetory: FIFO, LIFO and register COGS for Income Statement
-	\item or goes to ---> Ending Inventory
-\end{itemize}
-}
-
 \subsubsectionbox{Accounting categories of Inventory}{pratt2010financial, investopedia}{
 Inventory plays a central role in accounting, reflecting a company's financial well-being and operational 
 stance. It represents a major portion of a firm's assets, with its management directly affecting 
@@ -507,8 +497,44 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 \end{itemize}
 }
 
+\subsubsectionbox{The Inventory Accounting Flow/Cycle}{pratt2010financial}{
+Foo
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=0.4cm, auto, font=\tiny]
+		\tikzstyle{Rect}=[draw, rectangle, minimum height=1.0625cm, minimum width=1.7cm, fill=none,
+			rounded corners=0.25mm, inner sep=0pt, align=left];
+		\tikzstyle{txt}=[anchor=north west, align=left, inner sep=0.75mm];
+		% Main nodes
+		\node[Rect] (acquiring) {};
+		\node[txt] () at (acquiring.north west)
+			{\textbf{Acquiring Inventory}\\\vspace{-1mm}\\Units to include\\Costs to attach};
+		\node[Rect, right=of acquiring.east, anchor=west](carrying) {};
+		\node[txt] () at (carrying.north west)
+			{\textbf{Carrying Inventory}\\\vspace{-1mm}\\Perpetual method\\Periodic method};
+		\node[Rect, right=0.6cm of carrying.east, anchor=south west, yshift=0.1cm] (selling) {};
+		\node[txt] () at (selling.north west)
+			{\textbf{Selling Inventory}\\\vspace{-1mm}\\FIFO\\LIFO\\Average};
+		\node[Rect, below=0.2cm of selling.south, anchor=north] (ending) {};
+		\node[txt] () at (ending.north west)
+			{\textbf{Ending Inventory}\\\vspace{-1mm}\\Something};
+		\node[Rect, right=0.8cm of selling.east, anchor=west, minimum width=1cm, minimum height=0.5cm]
+			(cogs) {\textbf{Income}\\\textbf{Statement}};
+		
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (acquiring.east) -- (carrying.west);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (carrying.east) -- ++ (0.30cm, 0cm) |- (selling.west);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (carrying.east) -- ++ (0.30cm, 0cm) |- (ending.west);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (ending.south) -- ++ (0cm, -0.20cm) -| (acquiring.south);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (selling.east) --node[above, font=\tiny] {COGS} (cogs.west);
+	\end{tikzpicture}
+\end{figure}
+}
 
-\subsubsectionbox{Units to include in Inventory}{}{
+\subsubsectionbox{Capitalization of Inventory Costs \& Units to include}{}{
+Inventories are acquired at a cost and don't generate revenues until they're sold; thus, their cost is 
+capitalized. Per the matching principle, the sale revenue is matched with the inventory's cost at the time of sale.
+To determine the capitalized cost, first identify the number of inventory items, then assign a cost to each item.
+\breakspace
 \textbf{General Rule:} Items intended for manufacturing, sale, or consumption should be included in a company's 
 inventory only if the company has full ownership of them, meaning that it bears all associated risks and benefits.
 Usually, ownership implies possession of the items, and in such cases, the units to be included in the 
@@ -572,32 +598,51 @@ with the FOB term from the International Commercial Terms, INCOTERMS {\sffamily\
 		\node[Rect, fill=\scolor] (seller) {Seller};
 		\node[Rect, right=of seller.east, anchor=west, minimum width=2.5cm, fill=\bcolor]
 			(shipment) {shipment};
+		\node[draw=none, inner sep=0pt, above=of shipment.north, anchor=south, align=left, yshift=2mm] (a) 
+			{Both a sale and a purchase \\should be recorded};
 		\node[Rect, right=of shipment.east, anchor=west, fill=\bcolor] (buyer) {Buyer};
 		\node[draw=none, inner sep=0pt, left=of seller.west, anchor=east, xshift=-2mm]
 			(fobship) {FOB shipping point};
 
-		\node[Rect, below=of seller.south, anchor=north, yshift=-10mm, xshift=0.1mm, fill=\scolor]
+		\node[Rect, below=of seller.south, anchor=north, yshift=-5mm, xshift=0.1mm, fill=\scolor]
 			(seller2) {Seller};
 		\node[Rect, right=of seller2.east, anchor=west, minimum width=2.5cm, fill=\scolor]
 			(shipment2) {shipment};
+		\node[draw=none, inner sep=0pt, above=of shipment2.south, anchor=north, align=left, yshift=-2mm] (b) 
+			{Neither a sale nor a purchase \\should be recorded};
 		\node[Rect, right=of shipment2.east, anchor=west, fill=\bcolor] (buyer2) {Buyer};
 		\node[draw=none, inner sep=0pt] at (fobship |- seller2)
 			(fobdest) {FOB destination};
 		
-		\draw[-, line width=0.0001mm] (seller.north east) -- (seller.south east);
-		\draw[-, line width=0.05mm] (shipment.south) -- (shipment2.north);
+		\draw[-, line width=0.01mm] ([yshift=-0.25mm]a.south) -- (shipment.north);
+		\draw[-, line width=0.01mm] (b.north) -- (shipment2.south);
+		\draw[-, line width=0.01mm] (shipment.south) -- (shipment2.north);
 		\path (shipment.south west) -- (shipment2.north west)
-			node[draw=none, fill=gray!3, inner sep=0pt, minimum width=4cm, midway, align=left]
-			(endofperiod) {
-				End of the accounting period:\\
-				FOB shipping: Both a sale and a purchase should be recorded\\
-				FOB destination: Neither a sale nor a purchase should be recorded};
-		
+			node[draw=none, fill=gray!3, inner sep=0pt, minimum width=4cm, midway, align=left, xshift=-5mm]
+			(endofperiod) {End of the accounting period};
 	\end{tikzpicture}
 \end{figure}
+\textbf{FOB shipping point:} The seller is responsible for the goods only to the point from which they are
+	shipped.\\
+\textbf{FOB destination:} The seller is responsible for the goods all the way to their destination.\\
 }
 
 \subsubsectionbox{Costs to Attach}{}{
+\textbf{General Rule:} Attach all the costs required to bring inventory to a saleable condition:
+\begin{itemize}
+	\item Acquisition (purchased or manufactured)
+	\item Shipping in (or inbound transportation)
+	\item Storage 
+	\item Packaging
+	\item Distribution costs $\rightarrow$ Following the above logic, these would be considered as "selling expenses".
+\end{itemize}
+}
+
+\subsubsectionbox{Accounting for Cash Discounts}{}{
+Foo
+}
+
+\subsubsectionbox{Accounting for Manufacturing Costs}{}{
 Foo
 }
 
