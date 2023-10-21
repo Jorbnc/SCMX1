@@ -498,7 +498,6 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 }
 
 \subsubsectionbox{The Inventory Accounting Flow/Cycle}{pratt2010financial}{
-Foo
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=0.4cm, auto, font=\tiny]
@@ -530,7 +529,7 @@ Foo
 \end{figure}
 }
 
-\subsubsectionbox{Capitalization of Inventory Costs \& Units to include}{}{
+\subsubsectionbox{Capitalization of Inventory Costs \& Units to include}{pratt2010financial}{
 Inventories are acquired at a cost and don't generate revenues until they're sold; thus, their cost is 
 capitalized. Per the matching principle, the sale revenue is matched with the inventory's cost at the time of sale.
 To determine the capitalized cost, first identify the number of inventory items, then assign a cost to each item.
@@ -544,7 +543,8 @@ However, there are situations where ownership doesn't necessarily  mean direct p
 notable exceptions are: Consignments and Goods in Transit.
 }
 
-\subsubsectionbox{Consignments}{}{In a consignment arrangement, the \textit{consignor} transfers inventory to a
+\subsubsectionbox{Consignments}{pratt2010financial}{
+In a consignment arrangement, the \textit{consignor} transfers inventory to a
 \textit{consignee}, such as a retailer, who physically holds and sells the items. While the consignor
 retains full ownership, the consignee, after selling, keeps a service fee and remits the rest of the
 proceeds to the consignor. 
@@ -578,7 +578,7 @@ proceeds to the consignor.
 Inventory should only be disclosed in the consignor's balance sheet.
 }
 
-\subsubsectionbox{Goods in Transit}{}{
+\subsubsectionbox{Goods in Transit}{pratt2010financial}{
 Theoretically, both a seller and a buyer should record a transaction simultaneously. However, in practice,
 most sales are recorded when goods are shipped, while purchases are typically recorded upon receipt of the goods.
 This method is generally acceptable, unless there are \textit{goods in transit} at the end of an accounting period.
@@ -627,23 +627,66 @@ with the FOB term from the International Commercial Terms, INCOTERMS {\sffamily\
 \textbf{FOB destination:} The seller is responsible for the goods all the way to their destination.\\
 }
 
-\subsubsectionbox{Costs to Attach}{}{
+\subsubsectionbox{Costs to Attach}{pratt2010financial, GPT4}{
 \textbf{General Rule:} Attach all the costs required to bring inventory to a saleable condition:
 \begin{itemize}
 	\item Acquisition (purchased or manufactured)
 	\item Shipping in (or inbound transportation)
 	\item Storage 
 	\item Packaging
-	\item Distribution costs $\rightarrow$ Following the above logic, these would be considered as "selling expenses".
 \end{itemize}
+Distribution costs $\rightarrow$ These are considered as "selling expenses", not inventory costs.
 }
 
-\subsubsectionbox{Accounting for Cash Discounts}{}{
-Foo
+\subsubsectionbox{Types of Discounts}{GPT4}{
+
+\textbf{Sales-boosting Discounts:}\\
+Designed to increase sales volume, either by attracting more customers or incentivizing larger purchases.\\
+Promotions, Introductory Offers, Trade Discounts, Volume or Quantity Discounts
+\breakspace
+\textbf{Inventory Management Discounts:}\\
+Discounts used to manage stock levels, clear old inventory, or promote specific products.\\
+Seasonal Discounts, Markdowns, Two-for-One (and related), Overstock Discounts, Closeout Discounts
+\breakspace
+\textbf{Liquidity-Improving Discounts:}\\
+Discounts offered to accelerate payment, enhancing the seller's (or even the buyer's) cash flow.\\
+Cash Discounts (Early Payment Discounts), Deferred Payment / Simple Trade Credit.
+\breakspace
+\textbf{Cost and Service Discounts:}\\
+Discounts that either reduce ancillary costs or add value through supplementary services.\\
+Free Shipping, Loyalty Discounts, Pick-up Incentives, Tiered Service Discounts.
 }
 
-\subsubsectionbox{Accounting for Manufacturing Costs}{}{
-Foo
+\subsubsectionbox{Cash Discounts (Early Payment Discounts)}{}{
+Incentives for buyers to pay invoices early, improving the seller's cash flow.
+For instance, "2/10 net 30" provides a 2\% discount if payment is made within 10 days;
+otherwise, the full amount is due by day 30.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=0mm, auto, font=\tiny]
+		\tikzstyle{Rect}=[rectangle, minimum height=0.35 cm, inner sep=0pt];
+		\node[Rect, minimum width=1.25cm, fill=Green!50] (disc) {2\% discount};
+		\node[Rect, right=of disc.east, minimum width=2.5cm, fill=Red!50] (full) {Full amount};
+		\node[below=of disc.south east] () {day 10};
+		\node[below=of full.south east] () {day 30};
+	\end{tikzpicture}
+\end{figure}%
+\vspace{-1.25mm}
+Based on the provided terms, buyers can either capitalize on a 2\% discount by paying on day 10, often via a loan, 
+or leverage the extended trade credit for 20 more days by settling on day 30. From a financial perspective, it's essential to 
+balance the associated debt cost against the opportunity cost of missing the discount or paying the extra amount.\\
+\vspace{2mm}
+\begin{minipage}{0.5\linewidth}\centering
+	\textbf{Simple interest of the opportunity cost:}
+	\[ \left(\frac{0.02}{0.98}\right) \left(\frac{365}{20}\right) \approx 0.37 \]
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}\centering
+	\textbf{Compound interest of the opportunity cost:}
+	\[ \left(\frac{1}{0.98}\right)^{(\nicefrac{365}{20})} - 1 \approx 0.45 \]
+\end{minipage}%
+\vspace{2mm}\\
+Annualization helps to compare the costs and evaluate alternatives, factoring in either simple or 
+compounded interest for the lost funds, based on how the business handles its money.
 }
 
 \subsubsectionbox{Record of carried inventory: Periodic and Perpetual Methods}{}{
@@ -1602,29 +1645,6 @@ Visually, we can check the boxed expression by the matching of the colors, and s
 \end{align*}\\
 A particular intersection of events would be represented as a full path in a probability tree.
 }
-\end{multicols*}
-
-\newpage
-\begin{multicols*}{2}
-
-\begin{center}
-Companies, Investors, and Flow of Capital
-	
-The Balance Sheet: A Statement of Financial Position
-
-The Income Statement
-
-Statement of Cash Flows
-
-Assets
-
-Securities
-
-Shareholder's Equity
-
-WACC
-\end{center}
-
 \end{multicols*}
 
 \newpage
