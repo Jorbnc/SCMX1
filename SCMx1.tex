@@ -697,16 +697,16 @@ This approach may be chosen due to technological constraints or specific company
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=0mm, auto, font=\tiny]
-		\node[draw=none, rectangle, minimum height=0.05cm, minimum width=7.5cm, fill=black!75, inner sep=0pt]
+		\node[draw=none, rectangle, minimum height=0.075cm, minimum width=7.5cm, fill=black!75, inner sep=0pt]
 			(timeline) {};
-		\draw[{Circle[length=0.75mm]}-{Circle[length=0.75mm]}, NavyBlue]
-			([yshift=2mm]timeline.north west) -- ++(1.25cm,0cm);
-		\foreach \x in {1.25, 2.5, 3.75, 5.00, 6.25}{
-			\draw[-{Circle[length=0.75mm]}, NavyBlue] ([yshift=2mm, xshift=\x cm]timeline.north west) -- ++(1.25cm,0cm);
+		\draw[{Circle[length=0.8mm]}-{Circle[length=0.8mm]}, NavyBlue]
+			([yshift=5mm]timeline.north west) -- ++(2.5cm,0cm);
+		\foreach \x in {2.5, 5.00}{
+			\draw[-{Circle[length=0.8mm]}, NavyBlue] ([yshift=5mm, xshift=\x cm]timeline.north west) -- ++(2.5cm,0cm);
 		}
-		\draw[{Circle[length=0.75mm]}-{Circle[length=0.75mm]}, NavyBlue]
-			([yshift=4mm, xshift=0cm]timeline.north west) -- ++(3.75cm,0cm);
-		\draw[-{Circle[length=0.75mm]}, NavyBlue] ([yshift=4mm, xshift=3.75cm]timeline.north west) -- ++(3.75cm,0cm);
+
+		\node[draw=none, inner sep=0pt, above, yshift=1.5mm] (i00) at (timeline.north west) {$I_o$};
+		\node[draw=none, inner sep=0pt, above, xshift=2.5cm, yshift=1.5mm] (i00) at (timeline.north west) {$I_o$};
 
 		\foreach \x in {
 			0.01, 0.1, 0.16, 0.2, 0.26, 0.29, 0.39, 0.62, 0.73, 0.91, 0.96,
