@@ -689,11 +689,48 @@ Annualization helps to compare the costs and evaluate alternatives, factoring in
 compounded interest for the lost funds, based on how the business handles its money.
 }
 
-\subsubsectionbox{Record of carried inventory: Periodic and Perpetual Methods}{}{
-Foo
+\subsubsectionbox{Inventory record keeping: Periodic and Perpetual Systems}{}{
+\textbf{Periodic System:}
+Inventory records are updated only at specific intervals, often at the end of a month or quarter.
+This approach may be chosen due to technological constraints or specific company policies.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=0mm, auto, font=\tiny]
+		\node[draw=none, rectangle, minimum height=0.05cm, minimum width=7.5cm, fill=black!75, inner sep=0pt]
+			(timeline) {};
+		\draw[{Circle[length=0.75mm]}-{Circle[length=0.75mm]}, NavyBlue]
+			([yshift=2mm]timeline.north west) -- ++(1.25cm,0cm);
+		\foreach \x in {1.25, 2.5, 3.75, 5.00, 6.25}{
+			\draw[-{Circle[length=0.75mm]}, NavyBlue] ([yshift=2mm, xshift=\x cm]timeline.north west) -- ++(1.25cm,0cm);
+		}
+		\draw[{Circle[length=0.75mm]}-{Circle[length=0.75mm]}, NavyBlue]
+			([yshift=4mm, xshift=0cm]timeline.north west) -- ++(3.75cm,0cm);
+		\draw[-{Circle[length=0.75mm]}, NavyBlue] ([yshift=4mm, xshift=3.75cm]timeline.north west) -- ++(3.75cm,0cm);
+
+		\foreach \x in {
+			0.01, 0.1, 0.16, 0.2, 0.26, 0.29, 0.39, 0.62, 0.73, 0.91, 0.96,
+			1.14, 1.27, 1.37, 1.6, 1.82,
+			2.03, 2.12, 2.15, 2.24, 2.28, 2.4, 2.45, 2.69, 2.85, 2.88,
+			3.0, 3.05, 3.26, 3.5, 3.66, 3.72, 3.9, 3.92,
+			4.09, 4.31, 4.43, 4.67, 4.69, 4.88,
+			5.09, 5.34, 5.42, 5.66, 5.86,
+			6.08, 6.16, 6.38, 6.6, 6.84, 6.93,
+			7.0, 7.02, 7.14, 7.26, 7.49
+		}{
+			\draw[-, line width=0.05mm, Green] ([xshift=\x cm, yshift=-0.75mm]timeline.south west) -- ++(0mm,-4mm);
+		}
+	\end{tikzpicture}
+\end{figure}%
+\vspace{-1mm}
+\textbf{Perpetual System:}
+Inventory is continuously updated with each transaction. Real-time tracking is often facilitated by 
+Point-of-Sale Systems or technologies such as RFID, QR codes, barcodes, and ERP systems. Additionally, 
+advanced innovations like the Internet of Things, Blockchain, AI, and Automation can further enhance 
+tracking precision.
 }
 
-\subsubsectionbox{COGS: FIFO vs. LIFO}{}{
+\subsubsectionbox{COGS: FIFO, LIFO, Average Method}{}{
 Foo
 }
 
