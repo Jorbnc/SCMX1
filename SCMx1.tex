@@ -697,16 +697,25 @@ This approach may be chosen due to technological constraints or specific company
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=0mm, auto, font=\tiny]
-		\node[draw=none, rectangle, minimum height=0.075cm, minimum width=7.5cm, fill=black!75, inner sep=0pt]
+		% Timeline
+		\node[draw=none, rectangle, minimum height=0.075cm, minimum width=7.5cm, fill=black!80, inner sep=0pt]
 			(timeline) {};
+
+		% 4-month periods
 		\draw[{Circle[length=0.8mm]}-{Circle[length=0.8mm]}, NavyBlue]
-			([yshift=5mm]timeline.north west) -- ++(2.5cm,0cm);
+			([yshift=6mm]timeline.north west) -- ++(2.5cm,0cm);
 		\foreach \x in {2.5, 5.00}{
-			\draw[-{Circle[length=0.8mm]}, NavyBlue] ([yshift=5mm, xshift=\x cm]timeline.north west) -- ++(2.5cm,0cm);
+			\draw[-{Circle[length=0.8mm]}, NavyBlue]
+			([yshift=6mm, xshift=\x cm]timeline.north west) -- ++(2.5cm,0cm);
 		}
 
-		\node[draw=none, inner sep=0pt, above, yshift=1.5mm] (i00) at (timeline.north west) {$I_o$};
-		\node[draw=none, inner sep=0pt, above, xshift=2.5cm, yshift=1.5mm] (i00) at (timeline.north west) {$I_o$};
+		% 3-month periods (Quarters)
+		\draw[{Circle[length=0.8mm]}-{Circle[length=0.8mm]}, NavyBlue]
+			([yshift=3mm]timeline.north west) -- ++(1.875cm,0cm);
+		\foreach \x in {1.875, 3.75, 5.625}{
+			\draw[-{Circle[length=0.8mm]}, NavyBlue]
+			([yshift=3mm, xshift=\x cm]timeline.north west) -- ++(1.875,0cm);
+		}
 
 		\foreach \x in {
 			0.01, 0.1, 0.16, 0.2, 0.26, 0.29, 0.39, 0.62, 0.73, 0.91, 0.96,
@@ -718,7 +727,7 @@ This approach may be chosen due to technological constraints or specific company
 			6.08, 6.16, 6.38, 6.6, 6.84, 6.93,
 			7.0, 7.02, 7.14, 7.26, 7.49
 		}{
-			\draw[-, line width=0.05mm, Green] ([xshift=\x cm, yshift=-0.75mm]timeline.south west) -- ++(0mm,-4mm);
+			\draw[-, line width=0.1mm, black!80] ([xshift=\x cm, yshift=1mm]timeline.west) -- ++(0mm,-2mm);
 		}
 	\end{tikzpicture}
 \end{figure}%
@@ -735,7 +744,20 @@ Foo
 }
 
 \subsubsectionbox{COGS Computation: Example}{}{
-Foo
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=4mm, auto, font=\tiny]
+			\tikzstyle{txt}=[draw=none, rectangle, inner sep=1.25pt, fill=Cyan!25];
+
+			\node[txt] (i0) {75 @ \$12};
+			\node[txt, right=of i0.east, anchor=west] (p1) {250 @ \$12};
+			\node[txt, right=of p1.east, anchor=west, fill=Green!50] (s1) {300};
+			\node[txt, right=of s1.east, anchor=west] (p2) {400 @ \$14};
+			\node[txt, right=of p2.east, anchor=west] (p3) {225 @ \$16};
+			\node[txt, right=of p3.east, anchor=west, fill=Green!50] (s2) {375};
+	
+		\end{tikzpicture}
+	\end{figure}%
 }
 
 \subsubsectionbox{Ending Inventory}{}{
