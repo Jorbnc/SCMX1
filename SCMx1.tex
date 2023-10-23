@@ -758,7 +758,7 @@ tracking precision.
 			\node[Rect1, right=of 11.east, anchor=west, fill=\acolor] (12) {};
 			\node[Rect1, right=of 12.east, anchor=west, fill=\acolor] (13) {};
 
-			\node[Rect2, right=1.5mm of 13.east, anchor=west, fill=\acolor] (21) {};
+			\node[Rect2, right=1.5mm of 13.south east, anchor=south west, fill=\acolor] (21) {};
 			\node[Rect2, right=of 21.east, anchor=west, fill=\acolor] (22) {};
 			\node[Rect2, right=of 22.east, anchor=west, fill=\acolor] (23) {};
 			\node[Rect2, right=of 23.east, anchor=west, fill=\acolor] (24) {};
@@ -769,7 +769,7 @@ tracking precision.
 			\node[Rect2, right=of 28.east, anchor=west, fill=\bcolor] (29) {};
 			\node[Rect2, right=of 29.east, anchor=west, fill=\bcolor] (210) {};
 
-			\node[Rect3, right=1.5mm of 210.east, anchor=west, fill=\bcolor] (31) {};
+			\node[Rect3, right=1.5mm of 210.south east, anchor=south west, fill=\bcolor] (31) {};
 			\node[Rect3, right=of 31.east, anchor=west, fill=\bcolor] (32) {};
 			\node[Rect3, right=of 32.east, anchor=west, fill=\bcolor] (33) {};
 			\node[Rect3, right=of 33.east, anchor=west] (34) {};
@@ -782,16 +782,16 @@ tracking precision.
 				([yshift=1.25mm]26.north west) -- ([yshift=1.25mm]210.north east) |- 
 				node[above] {Second Sale FIFO} ([yshift=1.25mm]33.north east);
 
-			\node[txt, below=0.65cm of 12.center] () {Beginning\\Inventory};
-			\node[txt, below=0.65cm of 25.east] () {First\\Purchase};
-			\node[txt, below=0.65cm of 33.center] () {Second\\Purchase};
+			\node[txt, below=0.375cm of 12.south] () {Beginning inventory};
+			\node[txt, below=0.375cm of 25.south east] () {First purchase};
+			\node[txt, below=0.375cm of 33.south] () {Second purchase};
 
 			% ===========================================================================================
 			\node[Rect1, below=1.5cm of 11.south, anchor=north, fill=white] (l11) {};
 			\node[Rect1, right=of l11.east, anchor=west, fill=white] (l12) {};
 			\node[Rect1, right=of l12.east, anchor=west, fill=\bcolor] (l13) {};
 
-			\node[Rect2, right=1.5mm of l13.east, anchor=west, fill=\bcolor] (l21) {};
+			\node[Rect2, right=1.5mm of l13.south east, anchor=south west, fill=\bcolor] (l21) {};
 			\node[Rect2, right=of l21.east, anchor=west, fill=\bcolor] (l22) {};
 			\node[Rect2, right=of l22.east, anchor=west, fill=\acolor] (l23) {};
 			\node[Rect2, right=of l23.east, anchor=west, fill=\acolor] (l24) {};
@@ -802,7 +802,7 @@ tracking precision.
 			\node[Rect2, right=of l28.east, anchor=west, fill=\acolor] (l29) {};
 			\node[Rect2, right=of l29.east, anchor=west, fill=\acolor] (l210) {};
 
-			\node[Rect3, right=1.5mm of l210.east, anchor=west, fill=\bcolor] (l31) {};
+			\node[Rect3, right=1.5mm of l210.south east, anchor=south west, fill=\bcolor] (l31) {};
 			\node[Rect3, right=of l31.east, anchor=west, fill=\bcolor] (l32) {};
 			\node[Rect3, right=of l32.east, anchor=west, fill=\bcolor] (l33) {};
 			\node[Rect3, right=of l33.east, anchor=west, fill=\bcolor] (l34) {};
@@ -811,10 +811,10 @@ tracking precision.
 			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
 				([yshift=1.25mm]l210.north east) -- node[above] {First Sale LIFO} ([yshift=1.25mm]l23.north west);
 			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-				([yshift=-9.25mm]l35.north east) -- node[below] {Second Sale LIFO} ([yshift=-9.25mm]l31.north west);
+				([yshift=1.25mm]l35.north east) -- node[above] {Second Sale LIFO} ([yshift=1.25mm]l31.north west);
 			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-				([yshift=-1.25mm]l22.south east) -| node[below] {Second Sale LIFO} ([yshift=-1.25mm]l13.south east) -- 
-				([yshift=-1.255mm]l13.south west);
+				([yshift=1.25mm]l22.north east) -| node[above] {Second Sale LIFO} ([yshift=1.25mm]l13.north east) -- 
+				([yshift=1.255mm]l13.north west);
 		
 		\end{tikzpicture}
 	\end{figure}
