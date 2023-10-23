@@ -75,7 +75,8 @@
                 natbib     = true,
                 style      = ext-numeric, % Original was "numeric" only. This one allows to change colors
                 sorting    = none]{biblatex}
-\addbibresource{refs.bib} % Load references
+\addbibresource{books.bib} % Load references
+\addbibresource{articles.bib} % Load references
 \RequirePackage[colorlinks, citecolor=red, filecolor=blue, linkcolor=blue, urlcolor=blue]{hyperref}
 
 % ===== SOURCE CODES ====================================================================================
