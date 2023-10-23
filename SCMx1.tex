@@ -823,7 +823,7 @@ tracking precision.
 \subsubsectionbox{COGS Computation Example}{}{
 Consider the following scenario with beginning inventory $I_o$, purchases and sales during a period.
 The \textcolor{NavyBlue}{perpetual} system computes COGS in each transaction and the 
-\textcolor{BrickRed}{periodic} system computes COGS at the end of the whole period.
+\textcolor{BrickRed}{periodic} system computes COGS at the end of the whole period. Cost allocation is \textbf{LIFO}.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=2.25mm, auto, font=\tiny]
@@ -864,8 +864,8 @@ The \textcolor{NavyBlue}{perpetual} system computes COGS in each transaction and
 			(p1.south) |- ([xshift=0.5mm, yshift=-1cm]p2.south) |- (periodic2.west);
 	\end{tikzpicture}
 \end{figure}%
-The \textcolor{NavyBlue}{Perpetual LIFO COGS is \dollars 9300} and 
-the \textcolor{BrickRed}{Periodic FIFO COGS is \dollars 9800}.
+The \textcolor{NavyBlue}{Perpetual LIFO COGS is \dollars 9300} whereas 
+the \textcolor{BrickRed}{Periodic LIFO COGS is \dollars 9800}.
 }
 
 \subsubsectionbox{Ending Inventory}{}{
