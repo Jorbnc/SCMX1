@@ -273,6 +273,7 @@
 \newcommand{\OR}{\textcolor{blue!70!black}{\;\,\lor\;\,}}
 \newcommand{\ldraw}{black}
 \newcommand{\breakspace}{\par\vspace{1.5mm}}
+\newcommand{\dollars}{\$\hspace{0.20mm}}
 
 % Colors for text
 \newcommand{\Blue}[1]{\textcolor{blue}{#1}}

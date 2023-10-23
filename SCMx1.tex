@@ -507,16 +507,16 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 		% Main nodes
 		\node[Rect] (acquiring) {};
 		\node[txt] () at (acquiring.north west)
-			{\textbf{Acquiring Inventory}\\\vspace{-1mm}\\Units to include\\Costs to attach};
+			{\textbf{Acquiring Inventory}\\\vspace{-1mm}\\Determine:\\\ding{223} Units to include\\\ding{223} Costs to attach};
 		\node[Rect, right=of acquiring.east, anchor=west](carrying) {};
 		\node[txt] () at (carrying.north west)
-			{\textbf{Carrying Inventory}\\\vspace{-1mm}\\Perpetual method\\Periodic method};
-		\node[Rect, right=0.6cm of carrying.east, anchor=south west, yshift=0.1cm] (selling) {};
+			{\textbf{Carrying Inventory}\\\vspace{-1mm}\\Record keeping:\\\ding{223} Perpetual system\\\ding{223} Periodic system};
+		\node[Rect, minimum height=1.25cm, right=0.6cm of carrying.east, anchor=south west, yshift=0.1cm] (selling) {};
 		\node[txt] () at (selling.north west)
-			{\textbf{Selling Inventory}\\\vspace{-1mm}\\FIFO\\LIFO\\Average};
-		\node[Rect, below=0.2cm of selling.south, anchor=north] (ending) {};
+			{\textbf{Selling Inventory}\\\vspace{-1mm}\\Cost Flow:\\\ding{223} FIFO\\\ding{223} LIFO\\\ding{223} Average};
+		\node[Rect, minimum height=0.75cm, below=0.2cm of selling.south, anchor=north] (ending) {};
 		\node[txt] () at (ending.north west)
-			{\textbf{Ending Inventory}\\\vspace{-1mm}\\Something};
+			{\textbf{Ending Inventory}\\\vspace{-1mm}\\Foo};
 		\node[Rect, right=0.8cm of selling.east, anchor=west, minimum width=1cm, minimum height=0.5cm]
 			(cogs) {\textbf{Income}\\\textbf{Statement}};
 		
@@ -743,21 +743,52 @@ tracking precision.
 Foo
 }
 
-\subsubsectionbox{COGS Computation: Example}{}{
-	\begin{figure}[H]
-		\centering
-		\begin{tikzpicture}[node distance=4mm, auto, font=\tiny]
-			\tikzstyle{txt}=[draw=none, rectangle, inner sep=1.25pt, fill=Cyan!25];
+\subsubsectionbox{COGS Computation Example}{}{
+Consider the following scenario with beginning inventory $I_o$, purchases and sales during a period.
+The \textcolor{NavyBlue}{perpetual} system computes COGS in each transaction and the 
+\textcolor{BrickRed}{periodic} system computes COGS at the end of the whole period.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=2.25mm, auto, font=\tiny]
+		\tikzstyle{txt}=[draw=black, line width=0.1mm, rectangle, inner sep=1.5pt, fill=none, align=left];
+		\tikzset{MyArrow/.style ={-{Stealth[length=1mm]}, line width=0.1mm}}
 
-			\node[txt] (i0) {75 @ \$12};
-			\node[txt, right=of i0.east, anchor=west] (p1) {250 @ \$12};
-			\node[txt, right=of p1.east, anchor=west, fill=Green!50] (s1) {300};
-			\node[txt, right=of s1.east, anchor=west] (p2) {400 @ \$14};
-			\node[txt, right=of p2.east, anchor=west] (p3) {225 @ \$16};
-			\node[txt, right=of p3.east, anchor=west, fill=Green!50] (s2) {375};
-	
-		\end{tikzpicture}
-	\end{figure}%
+		% Purchases and Sales
+		\node[txt, draw=none, fill=none, inner sep=0pt] (purchases) {Purchases:};
+		\node[txt, left=of purchases.west, anchor=east] (i0) {75 @ \dollars 12};
+		\node[txt, draw=none, left=of i0.west, anchor=east] (beginning) {\textbf{$I_{o}:$}};
+		\node[txt, right=of purchases.east, anchor=west] (p1) {250 @ \dollars 12};
+		\node[txt, draw=none, left=of p1.north west, anchor=south east] (sales) {Sales:};
+		\node[txt, right=of p1.north east, anchor=south west] (s1) {300 @ \dollars 25};
+		\node[txt, right=of s1.south east, anchor=north west] (p2) {400 @ \dollars 14};
+		\node[txt, right=of p2.east, anchor=west] (p3) {225 @ \dollars 16};
+		\node[txt, right=of p3.north east, anchor=south west] (s2) {375 @ \dollars 26};
+		
+		% Perpetual LIFO
+		\node[txt, draw=none, above=of s1.north, anchor=south, align=right, NavyBlue] (perpetual1)
+			{250 @ \dollars 12 \\ \underline{50 @ \dollars 12} \\ \dollars 3600};
+		\draw[MyArrow, NavyBlue] (p1.north) |- ([yshift=-1mm]perpetual1.north west);
+		\draw[MyArrow, NavyBlue] (i0.north) |- (perpetual1.west);
+		\node[txt, draw=none, above=of s2.north, anchor=south, align=right, NavyBlue] (perpetual2)
+			{225 @ \dollars 16 \\ \underline{150 @ \dollars 14} \\ \dollars 5700};
+		\draw[MyArrow, NavyBlue] (p3.north) |- ([yshift=-1mm]perpetual2.north west);
+		\draw[MyArrow, NavyBlue] (p2.north) |- (perpetual2.west);
+
+		% Periodic LIFO
+		\node[txt, yshift=-3mm, draw=none, below=of s1.south, anchor= north, align=right, BrickRed] (periodic1)
+			{225 @ \dollars 16 \\ \underline{75 @ \dollars 14} \\ \dollars 4650};
+		\draw[MyArrow, BrickRed] (p3.south) |- ([yshift=-1.2mm]periodic1.north east);
+		\draw[MyArrow, BrickRed] ([xshift=-0.5mm]p2.south) |- (periodic1.east);
+		\node[txt, yshift=-4.5mm, draw=none, below=of s2.south, anchor= north, align=right, BrickRed] (periodic2)
+			{325 @ \dollars 14 \\ \underline{50 @ \dollars 12} \\ \dollars 5150};
+		\draw[MyArrow, BrickRed]
+			([xshift=0.5mm]p2.south) |- ([yshift=-1.2mm]periodic2.north west);
+		\draw[MyArrow, BrickRed]
+			(p1.south) |- ([xshift=0.5mm, yshift=-1cm]p2.south) |- (periodic2.west);
+	\end{tikzpicture}
+\end{figure}%
+The \textcolor{NavyBlue}{Perpetual LIFO COGS is \dollars 9300} and 
+the \textcolor{BrickRed}{Periodic FIFO COGS is \dollars 9800}.
 }
 
 \subsubsectionbox{Ending Inventory}{}{
