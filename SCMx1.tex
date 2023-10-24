@@ -745,6 +745,8 @@ This approach may be chosen due to technological constraints or specific company
 		}
 		\draw[BrickRed] (0, \yvar+0.2mm) -- (7.5, \yvar+0.25mm);
 
+		\node[align=left] () at (3.75, 1.6) {$\textbf{COGS}_{t} = I_{t-1}+ P_{t} - I_{t}$};
+
 	\end{tikzpicture}
 \end{figure}%
 \vspace{-1mm}
@@ -755,84 +757,113 @@ advanced innovations like the Internet of Things, Blockchain, AI, and Automation
 tracking precision.
 }
 
-\subsubsectionboxEDIT{COGS Allocation: FIFO, LIFO, Average Method}{pratt2010financial}{
-	\begin{figure}[H]
-		\centering
-		\def\acolor{Blue!45}
-		\def\bcolor{Red!60}
-		\begin{tikzpicture}[
-				scale=0.75, every node/.style={transform shape},
-				node distance=0.2mm, auto, font=\tiny, line width=0.1mm
-			]
-			\tikzstyle{Rect1}=[draw, rectangle, minimum width=4mm, minimum height=4mm, inner sep=0pt];
-			\tikzstyle{Rect2}=[draw, rectangle, minimum width=4mm, minimum height=6mm, inner sep=0pt];
-			\tikzstyle{Rect3}=[draw, rectangle, minimum width=4mm, minimum height=8mm, inner sep=0pt];
-			\tikzstyle{txt}=[draw=none, rectangle, inner sep=0pt, align=center];
+\subsubsectionbox{COGS Allocation: FIFO, LIFO, Average Method}{pratt2010financial}{
+\vspace{-1mm}
+\begin{figure}[H]
+	\centering
+	\def\acolor{MidnightBlue!55}
+	\def\bcolor{Red!60}
+	\begin{tikzpicture}[
+			scale=0.75, every node/.style={transform shape},
+			node distance=0.2mm, auto, font=\tiny, line width=0.1mm
+		]
+		\tikzstyle{Rect1}=[draw, rectangle, minimum width=4mm, minimum height=4mm, inner sep=0pt];
+		\tikzstyle{Rect2}=[draw, rectangle, minimum width=4mm, minimum height=6mm, inner sep=0pt];
+		\tikzstyle{Rect3}=[draw, rectangle, minimum width=4mm, minimum height=8mm, inner sep=0pt];
+		\tikzstyle{txt}=[draw=none, rectangle, inner sep=0pt, align=center];
 
-			\node[Rect1, fill=\acolor] (11) {};
-			\node[Rect1, right=of 11.east, anchor=west, fill=\acolor] (12) {};
-			\node[Rect1, right=of 12.east, anchor=west, fill=\acolor] (13) {};
+		\node[Rect1, fill=\acolor] (11) {};
+		\node[Rect1, right=of 11.east, anchor=west, fill=\acolor] (12) {};
+		\node[Rect1, right=of 12.east, anchor=west, fill=\acolor] (13) {};
 
-			\node[Rect2, right=1.5mm of 13.south east, anchor=south west, fill=\acolor] (21) {};
-			\node[Rect2, right=of 21.east, anchor=west, fill=\acolor] (22) {};
-			\node[Rect2, right=of 22.east, anchor=west, fill=\acolor] (23) {};
-			\node[Rect2, right=of 23.east, anchor=west, fill=\acolor] (24) {};
-			\node[Rect2, right=of 24.east, anchor=west, fill=\acolor] (25) {};
-			\node[Rect2, right=of 25.east, anchor=west, fill=\bcolor] (26) {};
-			\node[Rect2, right=of 26.east, anchor=west, fill=\bcolor] (27) {};
-			\node[Rect2, right=of 27.east, anchor=west, fill=\bcolor] (28) {};
-			\node[Rect2, right=of 28.east, anchor=west, fill=\bcolor] (29) {};
-			\node[Rect2, right=of 29.east, anchor=west, fill=\bcolor] (210) {};
+		\node[Rect2, right=1.5mm of 13.south east, anchor=south west, fill=\acolor] (21) {};
+		\node[Rect2, right=of 21.east, anchor=west, fill=\acolor] (22) {};
+		\node[Rect2, right=of 22.east, anchor=west, fill=\acolor] (23) {};
+		\node[Rect2, right=of 23.east, anchor=west, fill=\acolor] (24) {};
+		\node[Rect2, right=of 24.east, anchor=west, fill=\acolor] (25) {};
+		\node[Rect2, right=of 25.east, anchor=west, fill=\bcolor] (26) {};
+		\node[Rect2, right=of 26.east, anchor=west, fill=\bcolor] (27) {};
+		\node[Rect2, right=of 27.east, anchor=west, fill=\bcolor] (28) {};
+		\node[Rect2, right=of 28.east, anchor=west, fill=\bcolor] (29) {};
+		\node[Rect2, right=of 29.east, anchor=west, fill=\bcolor] (210) {};
 
-			\node[Rect3, right=1.5mm of 210.south east, anchor=south west, fill=\bcolor] (31) {};
-			\node[Rect3, right=of 31.east, anchor=west, fill=\bcolor] (32) {};
-			\node[Rect3, right=of 32.east, anchor=west, fill=\bcolor] (33) {};
-			\node[Rect3, right=of 33.east, anchor=west] (34) {};
-			\node[Rect3, right=of 34.east, anchor=west] (35) {};
+		\node[Rect3, right=1.5mm of 210.south east, anchor=south west, fill=\bcolor] (31) {};
+		\node[Rect3, right=of 31.east, anchor=west, fill=\bcolor] (32) {};
+		\node[Rect3, right=of 32.east, anchor=west, fill=\bcolor] (33) {};
+		\node[Rect3, right=of 33.east, anchor=west, fill=white] (34) {};
+		\node[Rect3, right=of 34.east, anchor=west, fill=white] (35) {};
 
-			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
-				([yshift=1.25mm]11.north west) -- ([yshift=1.25mm]13.north east) |- 
-				node[above] {First Sale FIFO} ([yshift=1.25mm]25.north east);
-			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-				([yshift=1.25mm]26.north west) -- ([yshift=1.25mm]210.north east) |- 
-				node[above] {Second Sale FIFO} ([yshift=1.25mm]33.north east);
+		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
+			([yshift=1.25mm]11.north west) -- ([yshift=1.25mm]13.north east) |- 
+			node[above] {First Sale} ([yshift=1.25mm]25.north east);
+		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
+			([yshift=1.25mm]26.north west) -- node[above, pos=0.70] {Second Sale}
+			([yshift=1.25mm]210.north east) |- ([yshift=1.25mm]33.north east);
 
-			\node[txt, below=0.375cm of 12.south] () {Beginning inventory};
-			\node[txt, below=0.375cm of 25.south east] () {First purchase};
-			\node[txt, below=0.375cm of 33.south] () {Second purchase};
+		\node[txt, above=1.35cm of 12.south] () {\textbf{Beginning inventory}};
+		\node[txt, above=1.35cm of 25.south] () {\textbf{First purchase}};
+		\node[txt, above=1.35cm of 33.south] () {\textbf{Second purchase}};
 
-			% ===========================================================================================
-			\node[Rect1, below=1.5cm of 11.south, anchor=north, fill=white] (l11) {};
-			\node[Rect1, right=of l11.east, anchor=west, fill=white] (l12) {};
-			\node[Rect1, right=of l12.east, anchor=west, fill=\bcolor] (l13) {};
+		\node[txt, left=0.45cm of 11.north west, anchor=east] () {\textbf{FIFO:}};
 
-			\node[Rect2, right=1.5mm of l13.south east, anchor=south west, fill=\bcolor] (l21) {};
-			\node[Rect2, right=of l21.east, anchor=west, fill=\bcolor] (l22) {};
-			\node[Rect2, right=of l22.east, anchor=west, fill=\acolor] (l23) {};
-			\node[Rect2, right=of l23.east, anchor=west, fill=\acolor] (l24) {};
-			\node[Rect2, right=of l24.east, anchor=west, fill=\acolor] (l25) {};
-			\node[Rect2, right=of l25.east, anchor=west, fill=\acolor] (l26) {};
-			\node[Rect2, right=of l26.east, anchor=west, fill=\acolor] (l27) {};
-			\node[Rect2, right=of l27.east, anchor=west, fill=\acolor] (l28) {};
-			\node[Rect2, right=of l28.east, anchor=west, fill=\acolor] (l29) {};
-			\node[Rect2, right=of l29.east, anchor=west, fill=\acolor] (l210) {};
+		% ===========================================================================================
+		\node[Rect1, below=1cm of 11.south, anchor=north, fill=white] (l11) {};
+		\node[Rect1, right=of l11.east, anchor=west, fill=white] (l12) {};
+		\node[Rect1, right=of l12.east, anchor=west, fill=\bcolor] (l13) {};
 
-			\node[Rect3, right=1.5mm of l210.south east, anchor=south west, fill=\bcolor] (l31) {};
-			\node[Rect3, right=of l31.east, anchor=west, fill=\bcolor] (l32) {};
-			\node[Rect3, right=of l32.east, anchor=west, fill=\bcolor] (l33) {};
-			\node[Rect3, right=of l33.east, anchor=west, fill=\bcolor] (l34) {};
-			\node[Rect3, right=of l34.east, anchor=west, fill=\bcolor] (l35) {};
+		\node[Rect2, right=1.5mm of l13.south east, anchor=south west, fill=\bcolor] (l21) {};
+		\node[Rect2, right=of l21.east, anchor=west, fill=\bcolor] (l22) {};
+		\node[Rect2, right=of l22.east, anchor=west, fill=\acolor] (l23) {};
+		\node[Rect2, right=of l23.east, anchor=west, fill=\acolor] (l24) {};
+		\node[Rect2, right=of l24.east, anchor=west, fill=\acolor] (l25) {};
+		\node[Rect2, right=of l25.east, anchor=west, fill=\acolor] (l26) {};
+		\node[Rect2, right=of l26.east, anchor=west, fill=\acolor] (l27) {};
+		\node[Rect2, right=of l27.east, anchor=west, fill=\acolor] (l28) {};
+		\node[Rect2, right=of l28.east, anchor=west, fill=\acolor] (l29) {};
+		\node[Rect2, right=of l29.east, anchor=west, fill=\acolor] (l210) {};
 
-			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
-				([yshift=1.25mm]l210.north east) -- node[above] {First Sale LIFO} ([yshift=1.25mm]l23.north west);
-			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-				([yshift=1.25mm]l35.north east) -- node[above] {Second Sale LIFO} ([yshift=1.25mm]l31.north west);
-			\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-				([yshift=1.25mm]l22.north east) -| node[above] {Second Sale LIFO} ([yshift=1.25mm]l13.north east) -- 
-				([yshift=1.255mm]l13.north west);
-		
-		\end{tikzpicture}
-	\end{figure}
+		\node[Rect3, right=1.5mm of l210.south east, anchor=south west, fill=\bcolor] (l31) {};
+		\node[Rect3, right=of l31.east, anchor=west, fill=\bcolor] (l32) {};
+		\node[Rect3, right=of l32.east, anchor=west, fill=\bcolor] (l33) {};
+		\node[Rect3, right=of l33.east, anchor=west, fill=\bcolor] (l34) {};
+		\node[Rect3, right=of l34.east, anchor=west, fill=\bcolor] (l35) {};
+
+		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
+			([yshift=1.25mm]l210.north east) -- node[above] {First Sale} ([yshift=1.25mm]l23.north west);
+		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
+			([yshift=1.25mm]l35.north east) -- node[above] {Second Sale} ([yshift=1.25mm]l31.north west);
+		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
+			([yshift=1.25mm]l22.north east) -| node[above] {Second Sale} ([yshift=1.25mm]l13.north east) -- 
+			([yshift=1.255mm]l13.north west);
+
+		\node[txt, left=0.45cm of l11.north west, anchor=east] () {\textbf{LIFO:}};
+
+		% ==============================================================================================
+		\node[Rect1, below=0.95cm of l11.south, anchor=north] (a11) {4};
+		\node[Rect1, right=of a11.east, anchor=west, fill=white] (a12) {4};
+		\node[Rect1, right=of a12.east, anchor=west, fill=white] (a13) {4};
+
+		\node[Rect2, right=1.5mm of a13.south east, anchor=south west, fill=white] (a21) {6};
+		\node[Rect2, right=of a21.east, anchor=west, fill=white] (a22) {6};
+		\node[Rect2, right=of a22.east, anchor=west, fill=white] (a23) {6};
+		\node[Rect2, right=of a23.east, anchor=west, fill=white] (a24) {6};
+		\node[Rect2, right=of a24.east, anchor=west, fill=white] (a25) {6};
+		\node[Rect2, right=of a25.east, anchor=west, fill=white] (a26) {6};
+		\node[Rect2, right=of a26.east, anchor=west, fill=white] (a27) {6};
+		\node[Rect2, right=of a27.east, anchor=west, fill=white] (a28) {6};
+		\node[Rect2, right=of a28.east, anchor=west, fill=white] (a29) {6};
+		\node[Rect2, right=of a29.east, anchor=west, fill=white] (a210) {6};
+
+		\node[Rect3, right=1.5mm of a210.south east, anchor=south west, fill=white] (a31) {8};
+		\node[Rect3, right=of a31.east, anchor=west, fill=white] (a32) {8};
+		\node[Rect3, right=of a32.east, anchor=west, fill=white] (a33) {8};
+		\node[Rect3, right=of a33.east, anchor=west, fill=white] (a34) {8};
+		\node[Rect3, right=of a34.east, anchor=west, fill=white] (a35) {8};
+
+		\node[txt, left=0.45cm of a11.north west, anchor=east] () {\textbf{Average:}};
+
+	\end{tikzpicture}
+\end{figure}
 }
 
 \subsubsectionbox{COGS Computation Example}{}{
