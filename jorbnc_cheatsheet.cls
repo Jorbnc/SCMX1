@@ -77,6 +77,7 @@
                 sorting    = none]{biblatex}
 \addbibresource{books.bib} % Load references
 \addbibresource{articles.bib} % Load references
+\addbibresource{web.bib} % Load references
 \RequirePackage[colorlinks, citecolor=red, filecolor=blue, linkcolor=blue, urlcolor=blue]{hyperref}
 
 % ===== SOURCE CODES ====================================================================================
@@ -124,6 +125,11 @@
 
 \providecommand{\subsubsectionbox}[3]{\fboxsep0.5em\hspace*{-1.5\fboxsep}%
   \fcolorbox{gray}{gray!3}{%
+  \parbox{\columnwidth}{%
+  \raggedright {\subsubsection{#1}\hfill\supercite{#2}} \topline #3}}}
+
+\providecommand{\subsubsectionboxEDIT}[3]{\fboxsep0.5em\hspace*{-1.5\fboxsep}%
+  \fcolorbox{gray}{yellow!50}{%
   \parbox{\columnwidth}{%
   \raggedright {\subsubsection{#1}\hfill\supercite{#2}} \topline #3}}}
  

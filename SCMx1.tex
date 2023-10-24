@@ -497,7 +497,7 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 \end{itemize}
 }
 
-\subsubsectionbox{The Inventory Accounting Flow/Cycle}{pratt2010financial}{
+\subsubsectionboxEDIT{The Inventory Accounting Flow/Cycle}{pratt2010financial}{
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=0.4cm, auto, font=\tiny]
@@ -529,11 +529,26 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 \end{figure}
 }
 
-\subsubsectionbox{Capitalization of Inventory Costs \& Units to include}{pratt2010financial}{
+\subsubsectionboxEDIT{Capitalization of Inventory Costs}{pratt2010financial, taxfoundationLIFO}{
 Inventories are acquired at a cost and don't generate revenues until they're sold; thus, their cost is 
 capitalized. Per the matching principle, the sale revenue is matched with the inventory's cost at the time of sale.
 To determine the capitalized cost, first identify the number of inventory items, then assign a cost to each item.
 \breakspace
+To understand the policy conversation about LIFO and FIFO, one must understand two main philosophies of 
+calculating income: the pure income approach and the cash flow approach.
+
+The income approach focuses on matching deductions for costs with the revenues they generate. For example, 
+if a farm invests in a new tractor that it will use for 10 years, it should spread the deductions for that 
+tractor out over the next 10 years. When applying this principle to inventories, companies should deduct 
+the cost of a unit of inventory when it is sold.
+
+The cash flow approach suggests companies should deduct their costs right when those costs are incurred. 
+In the case of the farm investing in a new combine, it should deduct the full cost of the combine immediately.
+When applying this principle to inventories, companies should deduct the cost of a unit of inventory when it 
+is acquired. 
+}
+
+\subsubsectionboxEDIT{Units to include}{pratt2010financial}{
 \textbf{General Rule:} Items intended for manufacturing, sale, or consumption should be included in a company's 
 inventory only if the company has full ownership of them, meaning that it bears all associated risks and benefits.
 Usually, ownership implies possession of the items, and in such cases, the units to be included in the 
@@ -627,7 +642,7 @@ with the FOB term from the International Commercial Terms, INCOTERMS {\sffamily\
 \textbf{FOB destination:} The seller is responsible for the goods all the way to their destination.\\
 }
 
-\subsubsectionbox{Costs to Attach}{pratt2010financial, GPT4}{
+\subsubsectionboxEDIT{Costs to Attach}{pratt2010financial, GPT4}{
 \textbf{General Rule:} Attach all the costs required to bring inventory to a saleable condition:
 \begin{itemize}
 	\item Acquisition (purchased or manufactured)
@@ -689,7 +704,7 @@ Annualization helps to compare the costs and evaluate alternatives, factoring in
 compounded interest for the lost funds, based on how the business handles its money.
 }
 
-\subsubsectionbox{Inventory record keeping: Periodic and Perpetual Systems}{pratt2010financial}{
+\subsubsectionboxEDIT{Inventory record keeping: Periodic and Perpetual Systems}{pratt2010financial}{
 \textbf{Periodic System:}
 Inventory records are updated only at specific intervals, often at the end of a month or quarter.
 This approach may be chosen due to technological constraints or specific company policies.
@@ -697,42 +712,42 @@ This approach may be chosen due to technological constraints or specific company
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=0mm, auto, font=\tiny]
-		% Timeline
-		\node[draw=none, rectangle, minimum height=0.075cm, minimum width=7.5cm, fill=black!80, inner sep=0pt]
-			(timeline) {};
-
-		% 4-month periods
-		\draw[{Circle[length=0.8mm]}-{Circle[length=0.8mm]}, NavyBlue]
-			([yshift=6mm]timeline.north west) -- ++(2.5cm,0cm);
-		\foreach \x in {2.5, 5.00}{
-			\draw[-{Circle[length=0.8mm]}, NavyBlue]
-			([yshift=6mm, xshift=\x cm]timeline.north west) -- ++(2.5cm,0cm);
-		}
+		% Inventory Level
+		\draw[-, line width=0.25mm]
+			(0cm,0.5cm) -| (0.30,0.90) -| (0.65,0.80) -| (0.85,0.70) -| (1.00,0.40) -| (1.25,1.10) -|
+			(1.45,0.70) -| (1.60,0.35) -| (2.00,1.05) -| (2.20,0.95) -| (2.40,0.90) -| (2.55,0.60) -|
+			(2.80,0.90) -| (3.15,0.80) -| (3.35,0.70) -| (3.50,0.20) -| (3.75,1.00) -| (4.10,0.80) -|
+			(4.30,0.70) -| (4.45,0.25) -| (4.70,1.10) -| (5.05,0.80) -| (5.25,0.70) -| (5.40,0.30) -|
+			(5.85,1.00) -| (6.00,0.80) -| (6.20,0.70) -| (6.35,0.25) -| (6.60,1.10) -| (6.95,0.80) -|
+			(7.15,0.70) -| (7.30,0.40) -- (7.5, 0.4);
 
 		% 3-month periods (Quarters)
-		\draw[{Circle[length=0.8mm]}-{Circle[length=0.8mm]}, NavyBlue]
-			([yshift=3mm]timeline.north west) -- ++(1.875cm,0cm);
+		\draw[{Circle[length=0.8mm]}-{Circle[length=0.8mm]}, NavyBlue] (0, 1.4) -- ++(1.875cm,0);
 		\foreach \x in {1.875, 3.75, 5.625}{
-			\draw[-{Circle[length=0.8mm]}, NavyBlue]
-			([yshift=3mm, xshift=\x cm]timeline.north west) -- ++(1.875,0cm);
+			\draw[-{Circle[length=0.8mm]}, NavyBlue] (0 + \x cm, 1.4) -- ++(1.875cm,0);
 		}
 
-		\foreach \x in {
-			0.01, 0.1, 0.16, 0.2, 0.26, 0.29, 0.39, 0.62, 0.73, 0.91, 0.96,
-			1.14, 1.27, 1.37, 1.6, 1.82,
-			2.03, 2.12, 2.15, 2.24, 2.28, 2.4, 2.45, 2.69, 2.85, 2.88,
-			3.0, 3.05, 3.26, 3.5, 3.66, 3.72, 3.9, 3.92,
-			4.09, 4.31, 4.43, 4.67, 4.69, 4.88,
-			5.09, 5.34, 5.42, 5.66, 5.86,
-			6.08, 6.16, 6.38, 6.6, 6.84, 6.93,
-			7.0, 7.02, 7.14, 7.26, 7.49
-		}{
-			\draw[-, line width=0.1mm, black!80] ([xshift=\x cm, yshift=1mm]timeline.west) -- ++(0mm,-2mm);
+		% Inventory Reviews
+		\def\yvar{-0.25cm}
+		\foreach \x/\y in {1.875/0.35, 3.75/0.20, 5.625/0.30, 7.5/0.40}{
+			\draw[dash pattern=on1off1, NavyBlue, line width=0.1mm]
+			([xshift=-0.4mm]\x,\y) -- ([xshift=-0.4mm]\x, 1.4);
 		}
+		\foreach \x/\y in {0.30/0.90 , 0.65/0.80 , 0.85/0.70 , 1.00/0.40 , 1.25/1.10 ,
+			1.45/0.70 , 1.60/0.35 , 2.00/1.05 , 2.20/0.95 , 2.40/0.90 , 2.55/0.60 ,
+			2.80/0.90 , 3.15/0.80 , 3.35/0.70 , 3.50/0.20 , 3.75/1.00 , 4.10/0.80 ,
+			4.30/0.70 , 4.45/0.25 , 4.70/1.10 , 5.05/0.80 , 5.25/0.70 , 5.40/0.30 ,
+			5.85/1.00 , 6.00/0.80 , 6.20/0.70 , 6.35/0.25 , 6.60/1.10 , 6.95/0.80 ,
+			7.15/0.70 , 7.30/0.40 , 7.5/ 0.4
+		} {
+			\draw[-{Circle[length=0.4mm]}, dash pattern=on1off1, BrickRed, line width=0.05mm]
+			(\x,\y) -- (\x,\yvar);
+		}
+		\draw[BrickRed] (0, \yvar+0.2mm) -- (7.5, \yvar+0.25mm);
+
 	\end{tikzpicture}
 \end{figure}%
 \vspace{-1mm}
-\Red{Maybe a stairs plot instead of many vertical lines}\\
 \textbf{Perpetual System:}
 Inventory is continuously updated with each transaction. Real-time tracking is often facilitated by 
 Point-of-Sale Systems or technologies such as RFID, QR codes, barcodes, and ERP systems. Additionally, 
@@ -740,7 +755,7 @@ advanced innovations like the Internet of Things, Blockchain, AI, and Automation
 tracking precision.
 }
 
-\subsubsectionbox{COGS Allocation: FIFO, LIFO, Average Method}{pratt2010financial}{
+\subsubsectionboxEDIT{COGS Allocation: FIFO, LIFO, Average Method}{pratt2010financial}{
 	\begin{figure}[H]
 		\centering
 		\def\acolor{Blue!45}
@@ -866,10 +881,6 @@ The \textcolor{NavyBlue}{perpetual} system computes COGS in each transaction and
 \end{figure}%
 The \textcolor{NavyBlue}{Perpetual LIFO COGS is \dollars 9300} whereas 
 the \textcolor{BrickRed}{Periodic LIFO COGS is \dollars 9800}.
-}
-
-\subsubsectionbox{Ending Inventory}{}{
-Foo
 }
 
 \subsection{Financial Performance}
