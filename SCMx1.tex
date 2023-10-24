@@ -795,9 +795,9 @@ tracking precision.
 
 		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
 			([yshift=1.25mm]11.north west) -- ([yshift=1.25mm]13.north east) |- 
-			node[above] {First Sale} ([yshift=1.25mm]25.north east);
+			node[above] {First Sale 8 units} ([yshift=1.25mm]25.north east);
 		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-			([yshift=1.25mm]26.north west) -- node[above, pos=0.70] {Second Sale}
+			([yshift=1.25mm]26.north west) -- node[above, pos=0.6] {Second Sale 8 units}
 			([yshift=1.25mm]210.north east) |- ([yshift=1.25mm]33.north east);
 
 		\node[txt, above=1.35cm of 12.south] () {\textbf{Beginning inventory}};
@@ -829,38 +829,48 @@ tracking precision.
 		\node[Rect3, right=of l34.east, anchor=west, fill=\bcolor] (l35) {};
 
 		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
-			([yshift=1.25mm]l210.north east) -- node[above] {First Sale} ([yshift=1.25mm]l23.north west);
+			([yshift=1.25mm]l210.north east) -- node[above] {First Sale 8 units} ([yshift=1.25mm]l23.north west);
 		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-			([yshift=1.25mm]l35.north east) -- node[above] {Second Sale} ([yshift=1.25mm]l31.north west);
+			([yshift=1.25mm]l35.north east) -- node[above] {Second Sale 5 units} ([yshift=1.25mm]l31.north west);
 		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-			([yshift=1.25mm]l22.north east) -| node[above] {Second Sale} ([yshift=1.25mm]l13.north east) -- 
+			([yshift=1.25mm]l22.north east) -| node[above] {Second Sale 3 units} ([yshift=1.25mm]l13.north east) -- 
 			([yshift=1.255mm]l13.north west);
 
 		\node[txt, left=0.45cm of l11.north west, anchor=east] () {\textbf{LIFO:}};
 
 		% ==============================================================================================
-		\node[Rect1, below=0.95cm of l11.south, anchor=north] (a11) {4};
-		\node[Rect1, right=of a11.east, anchor=west, fill=white] (a12) {4};
-		\node[Rect1, right=of a12.east, anchor=west, fill=white] (a13) {4};
+		\node[Rect1, below=0.8cm of l12.south, anchor=north] (a1) {};
+		\node[txt, left=of a1.west, anchor=east] (3x) {$\frac{3}{13}\,$};
+		\node[txt, right=of a1.east, anchor=west] (plus10) {$\,+\,\frac{10}{13}$};
+		\node[Rect2, right=0.675cm of a1.south east, anchor=south west] (a2) {};
+		\node[txt, right=0.575cm of plus10.east, anchor=west] (equals) {$\,=$};
+		\node[Rect2, right=0.5cm of a2.south east, anchor=south west,
+			minimum height=5.54mm, fill=\acolor] (a3) {};
 
-		\node[Rect2, right=1.5mm of a13.south east, anchor=south west, fill=white] (a21) {6};
-		\node[Rect2, right=of a21.east, anchor=west, fill=white] (a22) {6};
-		\node[Rect2, right=of a22.east, anchor=west, fill=white] (a23) {6};
-		\node[Rect2, right=of a23.east, anchor=west, fill=white] (a24) {6};
-		\node[Rect2, right=of a24.east, anchor=west, fill=white] (a25) {6};
-		\node[Rect2, right=of a25.east, anchor=west, fill=white] (a26) {6};
-		\node[Rect2, right=of a26.east, anchor=west, fill=white] (a27) {6};
-		\node[Rect2, right=of a27.east, anchor=west, fill=white] (a28) {6};
-		\node[Rect2, right=of a28.east, anchor=west, fill=white] (a29) {6};
-		\node[Rect2, right=of a29.east, anchor=west, fill=white] (a210) {6};
+		\node[txt, right=1.25cm of equals.east, anchor=west, align=left, Blue] (afirstsale)
+			{First sale \\$8$ units};
+		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
+			([xshift=0.65cm]equals.east) -- ([xshift=-0.5mm]afirstsale.west);
 
-		\node[Rect3, right=1.5mm of a210.south east, anchor=south west, fill=white] (a31) {8};
-		\node[Rect3, right=of a31.east, anchor=west, fill=white] (a32) {8};
-		\node[Rect3, right=of a32.east, anchor=west, fill=white] (a33) {8};
-		\node[Rect3, right=of a33.east, anchor=west, fill=white] (a34) {8};
-		\node[Rect3, right=of a34.east, anchor=west, fill=white] (a35) {8};
+		\node[Rect2, right=2.5cm of a3.south east, anchor=south west,
+			minimum height=5.54mm] (a4) {};
+		\def\yfix{-0.8mm}
+		\node[txt, left=of a4.west, anchor=east, yshift=\yfix] (5x) {$\frac{5}{10}\,$};
+		\node[txt, right=of a4.east, anchor=west, yshift=\yfix] (plus5) {$\,+\,\frac{5}{10}$};
+		\node[Rect3, right=0.675cm of a4.south east, anchor=south west] (a5) {};
+		\node[txt, right=0.575cm of plus5.east, anchor=west] (equals2) {$\,=$};
+		\node[Rect2, right=0.5cm of a5.south east, anchor=south west,
+			minimum height=6.77mm, fill=\bcolor] (a6) {};
+			
+		\node[txt, right=1.25cm of equals2.east, anchor=west, align=left, Red] (asecondsale)
+			{Second sale \\$8$ units};
+		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
+				([xshift=0.65cm]equals2.east) -- ([xshift=-0.5mm]asecondsale.west);
 
-		\node[txt, left=0.45cm of a11.north west, anchor=east] () {\textbf{Average:}};
+		\node[txt, left=0.45cm of l11.north west, anchor=east, yshift=-1.4cm] () {\textbf{Average:}};
+
+		\draw[-{Stealth[length=0.4mm]}, line width=0.05mm]
+			([xshift=1mm, yshift=-0.5mm]a3.north east) -- ([xshift=-1mm, yshift=-0.5mm]a4.north west);
 
 	\end{tikzpicture}
 \end{figure}
