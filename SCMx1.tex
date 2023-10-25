@@ -497,7 +497,7 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 \end{itemize}
 }
 
-\subsubsectionboxEDIT{The Inventory Accounting Flow/Cycle}{pratt2010financial}{
+\subsubsectionbox{The Inventory Accounting Flow/Cycle}{pratt2010financial}{
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=0.4cm, auto, font=\tiny]
@@ -511,20 +511,21 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 		\node[Rect, right=of acquiring.east, anchor=west](carrying) {};
 		\node[txt] () at (carrying.north west)
 			{\textbf{Carrying Inventory}\\\vspace{-1mm}\\Record keeping:\\\ding{223} Perpetual system\\\ding{223} Periodic system};
-		\node[Rect, minimum height=1.25cm, right=0.6cm of carrying.east, anchor=south west, yshift=0.1cm] (selling) {};
-		\node[txt] () at (selling.north west)
-			{\textbf{Selling Inventory}\\\vspace{-1mm}\\Cost Flow:\\\ding{223} FIFO\\\ding{223} LIFO\\\ding{223} Average};
-		\node[Rect, minimum height=0.75cm, below=0.2cm of selling.south, anchor=north] (ending) {};
-		\node[txt] () at (ending.north west)
-			{\textbf{Ending Inventory}\\\vspace{-1mm}\\Foo};
-		\node[Rect, right=0.8cm of selling.east, anchor=west, minimum width=1cm, minimum height=0.5cm]
+		\node[Rect, right=of carrying.east, anchor=west] (costflow) {};
+		\node[txt] () at (costflow.north west)
+			{\textbf{Cost Flow Method}\\\vspace{-1mm}\\\ding{223} FIFO\\\ding{223} LIFO\\\ding{223} Average};
+		
+		\node[Rect, below= of costflow.south, anchor=north, minimum width=1cm, minimum height=0.5cm]
+			(ending) {\textbf{Ending}\\\textbf{Inventory}};
+
+		\node[Rect, right=0.65cm of costflow.east, anchor=west, minimum width=1cm, minimum height=0.5cm]
 			(cogs) {\textbf{Income}\\\textbf{Statement}};
 		
 		\draw[-{Stealth[length=1mm]}, InfoFlow] (acquiring.east) -- (carrying.west);
-		\draw[-{Stealth[length=1mm]}, InfoFlow] (carrying.east) -- ++ (0.30cm, 0cm) |- (selling.west);
-		\draw[-{Stealth[length=1mm]}, InfoFlow] (carrying.east) -- ++ (0.30cm, 0cm) |- (ending.west);
-		\draw[-{Stealth[length=1mm]}, InfoFlow] (ending.south) -- ++ (0cm, -0.20cm) -| (acquiring.south);
-		\draw[-{Stealth[length=1mm]}, InfoFlow] (selling.east) --node[above, font=\tiny] {COGS} (cogs.west);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (carrying.east) -- ++ (0.30cm, 0cm) |- (costflow.west);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (costflow.south) -- (ending.north);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (ending.west) -| (carrying.south);
+		\draw[-{Stealth[length=1mm]}, InfoFlow] (costflow.east) --node[above, font=\tiny] {COGS} (cogs.west);
 	\end{tikzpicture}
 \end{figure}
 }
@@ -706,8 +707,10 @@ compounded interest for the lost funds, based on how the business handles its mo
 
 \subsubsectionboxEDIT{Inventory record keeping: Periodic and Perpetual Systems}{pratt2010financial}{
 \textbf{Periodic System:}
-Inventory records are updated only at specific intervals, often at the end of a month or quarter.
-This approach may be chosen due to technological constraints or specific company policies.
+Inventory records are updated only at specific intervals, often at the end of a month or quarter. For instance,
+\textit{COGS} would be calculated considering the \textit{beginning inventory} plus the \textit{purchases}
+during the period minus the \textit{ending inventory}. This approach may be chosen due to technological 
+constraints or specific company policies.
 
 \begin{figure}[H]
 	\centering
@@ -800,9 +803,9 @@ tracking precision.
 			([yshift=1.25mm]26.north west) -- node[above, pos=0.6] {Second Sale 8 units}
 			([yshift=1.25mm]210.north east) |- ([yshift=1.25mm]33.north east);
 
-		\node[txt, above=1.35cm of 12.south] () {\textbf{Beginning inventory}};
-		\node[txt, above=1.35cm of 25.south] () {\textbf{First purchase}};
-		\node[txt, above=1.35cm of 33.south] () {\textbf{Second purchase}};
+		\node[txt, above=1.35cm of 12.south] () {\textbf{Beginning inventory = 3}};
+		\node[txt, above=1.35cm of 25.south] () {\textbf{First purchase = 10}};
+		\node[txt, above=1.35cm of 33.south] () {\textbf{Second purchase = 5}};
 
 		\node[txt, left=0.45cm of 11.north west, anchor=east] () {\textbf{FIFO:}};
 
