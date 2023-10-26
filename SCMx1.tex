@@ -293,27 +293,6 @@ often at the end of a fiscal year, showcasing assets, liabilities, and sharehold
 The amount of highly liquid assets indicates ability to meet debt payments as they come due.
 }
 
-\subsubsectionbox{Elements of the Income Statement}{pratt2010financial,}{
-\textbf{Revenues} indicate inflow of assets or reduction in liabilities, primarily from sales of 
-inventories or services.
-\breakspace
-\textbf{COGS} or \textbf{Cost of Sales} reflects the original cost of inventory sold, either its purchase price or 
-its manufacturing  cost. By subtracting this from Revenues, we arrive at the \textbf{Gross Margin}.
-\breakspace
-\textbf{R\&D Expenses} or Research \& Development Expenses cover costs like product innovation or supply chain 
-optimizations.
-Whereas \textbf{SGA Expenses} or Selling, General, and Administrative expenses, encompass costs that 
-aren't directly tied to producing an item. This includes expenses such as salaries, rent, utilities, marketing,
-distribution costs, customer service as well as administrative costs like office supplies, legal fees, etc.
-\breakspace
-By subtracting the aforementioned expenses, we derive \textbf{EBITDA}, which stands for Earnings Before Interest, 
-Taxes, Depreciation, and Amortization. Further adjustments, primarily subtracting depreciation and amortization 
-from EBITDA, yield the \textbf{Operating Income}, also known as \textbf{EBIT} (Earnings Before Interest and Taxes).
-\breakspace
-\textbf{Other revenues} (or expenses) represent minor cash inflows or outflows not related to core operations.
-After accounting for these, we determine the \textbf{Net Income}, also referred to as \textbf{Profit}.
-}
-
 \subsubsectionbox{The Income Statement Visualized}{pratt2010financial, allen2017principles}{
 Let's examine a scenario where better demand-supply alignment results in a 5\% sales increase, 
 while also fairly accounting for a rise in costs and expenses.
@@ -395,6 +374,27 @@ while also fairly accounting for a rise in costs and expenses.
 		
 	\end{tikzpicture}
 \end{figure}
+}
+
+\subsubsectionbox{Elements of the Income Statement}{pratt2010financial,}{
+\textbf{Revenues} indicate inflow of assets or reduction in liabilities, primarily from sales of 
+inventories or services.
+\breakspace
+\textbf{COGS} or \textbf{Cost of Sales} reflects the original cost of inventory sold, either its purchase price or 
+its manufacturing  cost. By subtracting this from Revenues, we arrive at the \textbf{Gross Margin}.
+\breakspace
+\textbf{R\&D Expenses} or Research \& Development Expenses cover costs like product innovation or supply chain 
+optimizations.
+Whereas \textbf{SGA Expenses} or Selling, General, and Administrative expenses, encompass costs that 
+aren't directly tied to producing an item. This includes expenses such as salaries, rent, utilities, marketing,
+distribution costs, customer service as well as administrative costs like office supplies, legal fees, etc.
+\breakspace
+By subtracting the aforementioned expenses, we derive \textbf{EBITDA}, which stands for Earnings Before Interest, 
+Taxes, Depreciation, and Amortization. Further adjustments, primarily subtracting depreciation and amortization 
+from EBITDA, yield the \textbf{Operating Income}, also known as \textbf{EBIT} (Earnings Before Interest and Taxes).
+\breakspace
+\textbf{Other revenues} (or expenses) represent minor cash inflows or outflows not related to core operations.
+After accounting for these, we determine the \textbf{Net Income}, also referred to as \textbf{Profit}.
 }
 
 \subsubsectionbox{Profitable operations as a source of capital}{pratt2010financial}{
@@ -530,7 +530,7 @@ In a broader operational context, beyond pure manufacturing, we also consider:
 \end{figure}
 }
 
-\subsubsectionboxEDIT{Capitalization of Inventory Costs}{pratt2010financial, taxfoundationLIFO}{
+\subsubsectionboxEDIT{Capitalization of Inventory Costs (Cost Deduction)}{pratt2010financial, taxfoundationLIFO}{
 Inventories are acquired at a cost and don't generate revenues until they're sold; thus, their cost is 
 capitalized. Per the matching principle, the sale revenue is matched with the inventory's cost at the time of sale.
 To determine the capitalized cost, first identify the number of inventory items, then assign a cost to each item.
@@ -546,7 +546,21 @@ the cost of a unit of inventory when it is sold.
 The cash flow approach suggests companies should deduct their costs right when those costs are incurred. 
 In the case of the farm investing in a new combine, it should deduct the full cost of the combine immediately.
 When applying this principle to inventories, companies should deduct the cost of a unit of inventory when it 
-is acquired. 
+is acquired.
+
+For accountants and financial analysts, the income (or book income) approach makes sense for determining the 
+financial health of a company—this approach shows that, for instance, a decline in cash flow thanks to major 
+investment decisions does not mean that the company is “losing money,” as those investment costs can get spread 
+out. Meanwhile, the cash flow-based approach makes the most sense from a tax economics perspective because 
+deducting investment costs when they are incurred means a company can deduct the full real cost, without 
+inflation and the time value of money eating away at the deduction’s value (which occurs when deductions 
+are spread over several years).
+
+For some issues, companies can use one set of rules to calculate financial income and another set of rules to 
+calculate taxable income —which also makes sense, as they measure different things. But in the case of LIFO and 
+FIFO, both systems are, at least on paper, based on the book income approach. Both systems have companies deduct 
+the cost of a unit of inventory when it is sold, not when it is acquired. Additionally, companies must use the 
+same system for both financial and taxable income.
 }
 
 \subsubsectionboxEDIT{Units to include}{pratt2010financial}{
@@ -759,23 +773,30 @@ Point-of-Sale Systems or technologies such as RFID, QR codes, barcodes, and ERP 
 This system provides enhanced tracking precision, though it may come at a significantly higher cost
 }
 
-\subsubsectionbox{Methods of Inventory Valuation and COGS Allocation}{pratt2010financial, repealLIFO, amazonCOGS}{
+\subsubsectionbox{Inventory Valuation Methods and COGS Allocation}{pratt2010financial, repealLIFO, amazonCOGS}{
+While theoretically possible, allocating inventory costs to specific items often proves impractical for most firms
+due to the need for extensive physical counting or advanced tracking systems. This challenge leads companies to 
+adopt standardized valuation methods, which, beyond simplifying the process, can also strategically influence 
+financial reporting and taxation.
+\breakspace
 \textbf{Specific Identification:} Often used for high-value items and increasingly with common items through 
-barcode and RFID technology, ensures the highest accuracy in inventory cost allocation and ending inventory 
-valuation by tracking individual items. However, it allows for potential manipulation of net income, as the 
-cost of goods sold can be selectively influenced by choosing specific items for sale.
+barcode and RFID technology, ensures the highest accuracy in inventory acquisition cost allocation and ending
+inventory  valuation by tracking individual items. However, it allows for potential manipulation of net income,
+as the  cost of goods sold can be selectively influenced by choosing specific items for sale.
 \breakspace
-\textbf{FIFO, LIFO:} First-in-First-Out (FIFO)) bases COGS on the oldest inventory, potentially understating it 
-in inflationary periods. Conversely, Last-in-First-Out (LIFO) uses the most recent costs, which may overstate 
-COGS during inflation but can provide tax benefits.
+The \textbf{FIFO (First-in-First-Out)} method calculates COGS using the oldest inventory costs, while the 
+ending inventory is valued at the most recent costs. During times of rising prices, this can result 
+in COGS being reported at lower, outdated costs, potentially understating the actual expense and inflating 
+profits in inflationary periods.
 \breakspace
-\textbf{Weighted Average:} This method calculates COGS and inventory value using a periodically updated weighted 
+The \textbf{LIFO (Last-in-First-Out)} method determines COGS using the most recent inventory costs and ending
+inventory is valued at the oldest costs. In inflationary times, this can lead to COGS reflecting higher,
+more current prices, possibly overstating expenses and reducing reported profits, but it may also offer tax 
+advantages due to lower taxable income.
+\breakspace
+\textbf{Weighted Average:} This method calculates COGS and ending inventory value using a periodically updated weighted 
 average cost, reflecting not just a simple average but a proportionate cost of goods, thus ensuring a balanced 
 approach to inventory valuation.
-}
-
-\subsubsectionbox{LIFO: Effects on Financial Statements and Taxes}{pratt2010financial, repealLIFO}{
-asd
 }
 
 \subsubsectionboxEDIT{FIFO, LIFO and the Weighted Average Method}{pratt2010financial}{
@@ -897,18 +918,20 @@ asd
 \end{figure}
 }
 
-\subsubsectionbox{COGS Allocation: Trade-Offs}{}{
-\textbf{Financial Statements:}
-\begin{itemize}
-	\item a
-	\item b
-\end{itemize}
+\subsubsectionbox{LIFO: Implications for Financial Reporting and Taxation}{pratt2010financial, repealLIFO,
+taxfoundationLIFO, investopediaLIFOReserve}{
+In periods of rising prices, inventory acquired later is often more expensive, and so the LIFO method allows for 
+the deduction of higher inventory costs, leading to decreased reported earnings and lower tax burdens.
+Conversely, during times of declining prices, LIFO can result in lower deductions, overstating both earnings 
+and tax liabilities. The strategic implications of these scenarios under LIFO require careful considerations.
 \breakspace
-\textbf{Taxes:}
-\begin{itemize}
-	\item a
-	\item b
-\end{itemize}
+The \textbf{LIFO Reserve}, representing the difference between FIFO and LIFO inventory valuations, facilitates 
+comparisons between companies with different accounting methods. It indicates inventory undervaluation on the
+balance sheet and the cumulative reduction in taxable income for the firm.
+\breakspace
+\textbf{Inventory Turnover:} Determined by COGS divided by Average Inventory, serves as a benchmark for comparing 
+efficiency across similar industries. However, in times of inflation, LIFO's elevated COGS can lead to seemingly 
+higher Inventory Turnover ratios, which may overstate a company's effectiveness in managing its inventory.
 }
 
 \subsubsectionbox{COGS Computation Example}{}{
@@ -1114,12 +1137,11 @@ transportation costs incurred from production-related activities.
 Determining the unit value in manufacturing can be more challenging  due to its intricate nature.
 \breakspace
 In basic inventory models, the unit cost is typically considered lot-size independent for simplicity.
-However, some models account for economies of scale by incorporating discounts related to the volume of 
+However, some models account for \textbf{economies of scale} by incorporating discounts related to the volume of 
 items purchased or produced, recognizing that unit costs can vary with lot size.
 \breakspace
-Typically, the unit value is derived from the company's internal accounting system, 
-representing its "book value",
-therefore, it may differ from what SCM/logistics specialists might consider. 
+Typically, the unit value is derived from the company's internal accounting system, representing its
+"\textbf{book value}", therefore, it may differ from what SCM/logistics specialists might consider. 
 Ideally, the unit value should be determined collaboratively, taking into account the actual money 
 spent on that specific SKU to prepare it for either internal or external use.
 }
