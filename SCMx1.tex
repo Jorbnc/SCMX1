@@ -755,12 +755,30 @@ constraints or specific company policies.
 \vspace{-1mm}
 \textbf{Perpetual System:}
 Inventory is continuously updated with each transaction. Real-time tracking is often facilitated by 
-Point-of-Sale Systems or technologies such as RFID, QR codes, barcodes, and ERP systems. Additionally, 
-advanced innovations like the Internet of Things, Blockchain, AI, and Automation can further enhance 
-tracking precision.
+Point-of-Sale Systems or technologies such as RFID, QR codes, barcodes, and ERP systems.
+This system provides enhanced tracking precision, though it may come at a significantly higher cost
 }
 
-\subsubsectionbox{COGS Allocation: FIFO, LIFO, Average Method}{pratt2010financial}{
+\subsubsectionbox{Methods of Inventory Valuation and COGS Allocation}{pratt2010financial, repealLIFO, amazonCOGS}{
+\textbf{Specific Identification:} Often used for high-value items and increasingly with common items through 
+barcode and RFID technology, ensures the highest accuracy in inventory cost allocation and ending inventory 
+valuation by tracking individual items. However, it allows for potential manipulation of net income, as the 
+cost of goods sold can be selectively influenced by choosing specific items for sale.
+\breakspace
+\textbf{FIFO, LIFO:} First-in-First-Out (FIFO)) bases COGS on the oldest inventory, potentially understating it 
+in inflationary periods. Conversely, Last-in-First-Out (LIFO) uses the most recent costs, which may overstate 
+COGS during inflation but can provide tax benefits.
+\breakspace
+\textbf{Weighted Average:} This method calculates COGS and inventory value using a periodically updated weighted 
+average cost, reflecting not just a simple average but a proportionate cost of goods, thus ensuring a balanced 
+approach to inventory valuation.
+}
+
+\subsubsectionbox{LIFO: Effects on Financial Statements and Taxes}{pratt2010financial, repealLIFO}{
+asd
+}
+
+\subsubsectionboxEDIT{FIFO, LIFO and the Weighted Average Method}{pratt2010financial}{
 \vspace{-1mm}
 \begin{figure}[H]
 	\centering
@@ -879,10 +897,25 @@ tracking precision.
 \end{figure}
 }
 
+\subsubsectionbox{COGS Allocation: Trade-Offs}{}{
+\textbf{Financial Statements:}
+\begin{itemize}
+	\item a
+	\item b
+\end{itemize}
+\breakspace
+\textbf{Taxes:}
+\begin{itemize}
+	\item a
+	\item b
+\end{itemize}
+}
+
 \subsubsectionbox{COGS Computation Example}{}{
 Consider the following scenario with beginning inventory $I_o$, purchases and sales during a period.
 The \textcolor{NavyBlue}{perpetual} system computes COGS in each transaction and the 
-\textcolor{BrickRed}{periodic} system computes COGS at the end of the whole period. Cost allocation is \textbf{LIFO}.
+\textcolor{BrickRed}{periodic} system computes COGS at the end of the whole period.
+Cost allocation is \textbf{LIFO}.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=2.25mm, auto, font=\tiny]
