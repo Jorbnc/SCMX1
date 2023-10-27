@@ -918,6 +918,34 @@ approach to inventory valuation.
 \end{figure}
 }
 
+\subsubsectionboxEDIT{LIFO Liquidation}{cfiLIFOliquidation, kinney2004jit}{
+This occurs when older, lower-cost LIFO inventory layers are sold, often due to cash flow issues, like shortages
+or the need to smooth earnings variability$^{1}$, demand spikes, supply shortages, or the disposal of outdated stock. 
+Such liquidations can significantly distort COGS, impacting taxable income and reported profits.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.75, every node/.style={transform shape}, node distance=0mm, auto, font=\tiny]
+		\def\acolor{MidnightBlue!25}
+		\def\bcolor{Green!55}
+		\tikzstyle{Rect1}=[draw, line width=0.05mm, rectangle, inner sep=0pt, fill=white];
+		\tikzstyle{Rect2}=[draw, line width=0.05mm, rectangle, inner sep=0pt, fill=white];
+
+		\node[Rect1, minimum width=2.00cm, minimum height=0.50cm] (c1) {smallest COGS};
+		\node[Rect1, minimum width=1.75cm, minimum height=0.75cm, right=of c1.south east, anchor=south west] (c2) {};
+		\node[Rect1, minimum width=1.75cm, minimum height=1.00cm, right=of c2.south east, anchor=south west] (c3) {};
+		\node[Rect2, minimum width=2.00cm, minimum height=1.00cm, above=of c1.north, anchor=south] (r1) {greatest revenue};
+		\node[Rect2, minimum width=1.75cm, minimum height=0.75cm, above=of c2.north, anchor=south] (r2) {};
+		\node[Rect2, minimum width=1.75cm, minimum height=0.50cm, above=of c3.north, anchor=south] (r3) {};
+
+		\node[right=of r3.north east, anchor=west] () {price};
+	\end{tikzpicture}
+\end{figure}%
+\Red{(idea for the figure)}\\
+$1$ Firms may use LIFO liquidation during certain periods as part of \textit{earnings management}, aiming to smooth 
+earnings and present a stable, predictable financial performance.
+}
+
+
 \subsubsectionbox{LIFO: Implications for Financial Reporting and Taxation}{pratt2010financial, repealLIFO,
 taxfoundationLIFO, investopediaLIFOReserve}{
 In periods of rising prices, inventory acquired later is often more expensive, and so the LIFO method allows for 
@@ -925,13 +953,32 @@ the deduction of higher inventory costs, leading to decreased reported earnings 
 Conversely, during times of declining prices, LIFO can result in lower deductions, overstating both earnings 
 and tax liabilities. The strategic implications of these scenarios under LIFO require careful considerations.
 \breakspace
-The \textbf{LIFO Reserve}, representing the difference between FIFO and LIFO inventory valuations, facilitates 
-comparisons between companies with different accounting methods. It indicates inventory undervaluation on the
-balance sheet and the cumulative reduction in taxable income for the firm.
-\breakspace
 \textbf{Inventory Turnover:} Determined by COGS divided by Average Inventory, serves as a benchmark for comparing 
 efficiency across similar industries. However, in times of inflation, LIFO's elevated COGS can lead to seemingly 
 higher Inventory Turnover ratios, which may overstate a company's effectiveness in managing its inventory.
+\breakspace
+The \textbf{LIFO Reserve}, representing the difference between FIFO and LIFO inventory valuations, facilitates 
+comparisons between companies with different accounting methods. It indicates inventory undervaluation on the
+balance sheet and the cumulative reduction in taxable income for the firm.
+}
+
+\subsubsectionbox{LIFO: Implications on Inventory Management}{kinney2004jit}{
+\cite{kinney2004jit} observed several trends regarding the interaction between Just-In-Time inventory 
+management, LIFO reserve dynamics, and financial decision-making in firms:
+\breakspace
+\textbf{Earnings Impact in LIFO Reserve Firms:} Firms with significant LIFO reserves often see short-term earnings 
+increases following JIT adoption, as the liquidation of lower-cost LIFO inventories reduces COGS and boosts profits.
+\breakspace
+\textbf{FIFO and Minimal LIFO Reserve Firms:} Companies operating under FIFO or with small LIFO reserves may 
+find that the  initial costs of implementing JIT can offset or even negate short-term productivity or efficiency 
+gains.
+\breakspace
+\textbf{JIT Adoption in High-Leverage Firms:} High-debt firms with large LIFO reserves tend to adopt JIT, 
+suggesting they use JIT-induced LIFO liquidations to manage debt-related constraints.
+\breakspace
+\textbf{Tax Rates Influencing JIT Adoption:} In high-tax scenarios, the likelihood of JIT adoption diminishes for 
+firms with large LIFO reserves, as JIT's low inventory levels limit the tax benefits of LIFO reserves, and their 
+liquidation can lead to unfavorable tax consequences.
 }
 
 \subsubsectionbox{COGS Computation Example}{}{
