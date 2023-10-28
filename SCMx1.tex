@@ -471,6 +471,128 @@ These earnings highlight the capital sourced directly from profitable operations
 capital derived from borrowings or owner contributions.
 }
 
+
+\subsection{Financial Performance}
+
+\subsubsectionbox{Measuring Performance}{}{
+Foo
+}
+
+\subsubsectionbox{The Operating Cycle}{pratt2010financial}{
+The operating cycle refers to the duration it takes for a company to convert its cash outflows into 
+cash inflows through its core operations.
+\begin{minipage}{0.6\linewidth}\centering
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[auto, font=\tiny]
+			% Path: Start the 'drawing pen' at (#1:#3) then draw an arc from #1 to #2 along the ellipse #3
+			\tikzset{partial ellipse/.style args={#1:#2:#3}{insert path={+ (#1:#3) arc (#1:#2:#3)}}}
+			%\draw (0,0) [very thin, gray] ellipse (2cm and 1cm); % Ellipse for reference
+	
+			% Nodes
+			\node (oc)[align=left] at (0:0) 		{Operating Cycle};
+			\node (a)[align=left] at (90:1cm) 		{Cash};
+			\node (b)[align=left, NavyBlue] at (20:1.7cm) 	{Manufacture or\\Purchase};
+			\node (c)[align=left] at (-20:1.7cm) 	{Inventory};
+			\node (d)[align=left, NavyBlue] at (-90:1cm)		{Sale};
+			\node (e)[align=left] at (-160:1.7cm)	{Accounts\\Receivable};
+			\node (f)[align=left, NavyBlue] at (160:1.7cm)	{Payment};
+			
+			% Edges and Arcs
+			\draw[-, NavyBlue] (0,0) [partial ellipse=81:51:2cm and 1cm]; % The center of the ellipse is at (0,0)
+			\draw[->, InfoFlow] (0,0) [partial ellipse=25:-23:2cm and 1cm];
+			\draw[-, NavyBlue] (0,0) [partial ellipse=-48:-81:2cm and 1cm];
+			\draw[->, NavyBlue] (0,0) [partial ellipse=-99:-125:2cm and 1cm];
+			\draw[-, NavyBlue] (0,0) [partial ellipse=-161:-205:2cm and 1cm];
+			\draw[->, NavyBlue] (0,0) [partial ellipse=-225:-261:2cm and 1cm];
+		\end{tikzpicture}
+	\end{figure}
+\end{minipage}%
+\begin{minipage}{0.35\linewidth}
+	\textnohyphenation{The duration of this cycle can vary based on the company type, its policies, 
+	industry norms, market conditions, and the nature of its transactions.
+	\vspace{2mm}\\
+	Current assets are those that can be converted into cash within a company's operating cycle
+	or within a year, whichever is longer.}
+\end{minipage}%
+\vspace{1mm}
+{\centering
+\textnohyphenation{
+\begin{tabular}{|p{1.45cm}|p{3.1cm}|p{3.1cm}|}
+	\hline
+	\textbf{Factors} & \textbf{Example 1} & \textbf{Example 2} \\
+	\hline
+	Company Type & Local craft brewery & High-end furniture manufacturer \\
+	\hline
+	Company Policies & Offers extended credit terms to distributors to promote their brand & Has a strict return policy, allowing only exchanges within a short window \\
+	\hline
+	Industry Norms & Typically, the alcoholic beverage industry sees seasonal spikes in sales, especially during holidays & In luxury furniture, customers expect customization options, leading to longer production times \\
+	\hline
+	Market Conditions & Due to a recent health trend, there's a surge in demand for craft beverages with natural ingredients & The economy is in a downturn, and fewer consumers are investing in luxury goods \\
+	\hline
+	Nature of \newline its Transactions & Primarily engages in B2B transactions with retailers and restaurants, which often involve negotiated rates and bulk deals & Engages mainly in B2C transactions through their showroom and online store, with occasional bespoke orders from corporate clients \\
+	\hline
+\end{tabular}}}
+}
+
+\subsubsectionbox{Working Capital}{}{
+Foo
+}
+
+\subsubsectionbox{Ratios}{}{
+Foo
+}
+
+\subsubsectionbox{Inventory Turnover Revisited}{}{
+Foo
+}
+
+\subsection{Cost of Capital}
+
+\subsubsectionbox{Cost of Capital}{}{
+Foo
+}
+
+\subsubsectionbox{WACC}{chopra2016scm}{
+\vspace{-3mm}
+\begin{align*}
+	\shortintertext{
+	The weighted average cost of capital uses the following formula:
+	}
+	\text{WACC} = \frac{E}{E+D}(R_E + \beta\cdot \text{MRP}) + \frac{D}{E+D}R_D(1-t)
+\end{align*}
+Let's analyze this concept. First, notice the terms $\frac{E}{D+E}$ and $\frac{D}{E+D}$;
+they create a weighted measure of the individual contributions of $(R_f + \beta\cdot \text{MRP})$ and $R_b(1-t)$.
+}
+
+\subsection{Economic and Investment Analysis}
+
+\subsubsectionbox{Time Value of Money}{}{
+Foo
+}
+
+\subsubsectionbox{Present Value}{}{
+Foo
+}
+
+\subsubsectionbox{Combine with Pratt 6?}{}{
+Check if Pratt chapter 6 has something to do with Cash Flow Analysis (it seems, but haven't done a diligent search).
+}
+
+\subsection{Pratt: Chapters 6, 7)}
+
+\subsubsectionbox{Why 6?}{}{
+It seems traditional ratio analysis is out of date, it isn't very useful.\\
+Future cash flows is a more realisitc analysis\\
+Must include \textbf{The Statement of Cash Flows}
+}
+
+\subsubsectionbox{Why 7?}{}{
+Inventories ---> But this will be include in the next section.
+}
+
+\sectionbox{Accounting POV for Inventory}
+
 \subsection{Accounting for Inventory}
 
 \subsubsectionbox{Accounting categories of Inventory}{pratt2010financial, investopedia}{
@@ -927,10 +1049,10 @@ Such liquidations can significantly distort COGS, impacting taxable income and r
 	\begin{tikzpicture}[scale=0.75, every node/.style={transform shape}, node distance=0mm, auto, font=\tiny]
 		\def\acolor{MidnightBlue!25}
 		\def\bcolor{Green!55}
-		\tikzstyle{Rect1}=[draw, line width=0.05mm, rectangle, inner sep=0pt, fill=white];
+		\tikzstyle{Rect1}=[draw, line width=0.05mm, rectangle, inner sep=0pt, align=left, fill=white];
 		\tikzstyle{Rect2}=[draw, line width=0.05mm, rectangle, inner sep=0pt, fill=white];
 
-		\node[Rect1, minimum width=2.00cm, minimum height=0.50cm] (c1) {smallest COGS};
+		\node[Rect1, minimum width=2.00cm, minimum height=0.50cm] (c1) {smallest COGS\\layer};
 		\node[Rect1, minimum width=1.75cm, minimum height=0.75cm, right=of c1.south east, anchor=south west] (c2) {};
 		\node[Rect1, minimum width=1.75cm, minimum height=1.00cm, right=of c2.south east, anchor=south west] (c3) {};
 		\node[Rect2, minimum width=2.00cm, minimum height=1.00cm, above=of c1.north, anchor=south] (r1) {greatest revenue};
@@ -964,20 +1086,20 @@ balance sheet and the cumulative reduction in taxable income for the firm.
 }
 
 \subsubsectionbox{LIFO and Just-in-Time Inventory Management}{kinney2004jit}{
-\cite{kinney2004jit} studied behaviors related to Just-In-Time inventory management, LIFO reserve dynamics, 
+\cite{kinney2004jit} observed the following behaviors related to Just-In-Time inventory management, LIFO reserve dynamics, 
 and financial decision-making in firms during the 1980s and 1990s, a period in which JIT gained popularity:
 \breakspace
-\textbf{Earnings Impact in LIFO Reserve Firms:} Firms with significant LIFO reserves often see short-term earnings 
-increases following JIT adoption, as the liquidation of lower-cost LIFO inventories reduces COGS and boosts profits.
+\textbf{Large LIFO Reserve firms:} Firms with significant LIFO reserves often see important short-term earnings 
+increases after JIT adoption, as the liquidation of lower-cost LIFO inventories reduces COGS and boosts profits.
 \breakspace
-\textbf{FIFO and Minimal LIFO Reserve Firms:} Companies operating under FIFO or with small LIFO reserves may 
+\textbf{FIFO and Minimal LIFO Reserve firms:} Companies operating under FIFO or with small LIFO reserves may 
 find that the  initial costs of implementing JIT can offset or even negate short-term productivity or efficiency 
 gains.
 \breakspace
-\textbf{JIT Adoption in High-Leverage Firms:} High-debt firms with large LIFO reserves tend to adopt JIT, 
+\textbf{JIT adoption in High-Leverage Firms:} High-debt firms with large LIFO reserves tend to adopt JIT, 
 suggesting they use JIT-induced LIFO liquidations to manage debt-related constraints.
 \breakspace
-\textbf{Tax Rates Influencing JIT Adoption:} In high-tax scenarios, the likelihood of JIT adoption diminishes for 
+\textbf{Tax rates influencing JIT adoption:} In high-tax scenarios, the likelihood of JIT adoption diminishes for 
 firms with large LIFO reserves, as JIT's low inventory levels limit the tax benefits of LIFO reserves, and their 
 liquidation can lead to unfavorable tax consequences.
 }
@@ -1029,111 +1151,6 @@ Cost allocation is \textbf{LIFO}.
 \end{figure}%
 The \textcolor{NavyBlue}{Perpetual LIFO COGS is \dollars 9300} whereas 
 the \textcolor{BrickRed}{Periodic LIFO COGS is \dollars 9800}.
-}
-
-\subsection{Financial Performance}
-
-\subsubsectionbox{Measuring Performance}{}{
-Foo
-}
-
-\subsubsectionbox{The Operating Cycle}{pratt2010financial}{
-The operating cycle refers to the duration it takes for a company to convert its cash outflows into 
-cash inflows through its core operations.
-\begin{minipage}{0.6\linewidth}\centering
-	\begin{figure}[H]
-		\centering
-		\begin{tikzpicture}[auto, font=\tiny]
-			% Path: Start the 'drawing pen' at (#1:#3) then draw an arc from #1 to #2 along the ellipse #3
-			\tikzset{partial ellipse/.style args={#1:#2:#3}{insert path={+ (#1:#3) arc (#1:#2:#3)}}}
-			%\draw (0,0) [very thin, gray] ellipse (2cm and 1cm); % Ellipse for reference
-	
-			% Nodes
-			\node (oc)[align=left] at (0:0) 		{Operating Cycle};
-			\node (a)[align=left] at (90:1cm) 		{Cash};
-			\node (b)[align=left, NavyBlue] at (20:1.7cm) 	{Manufacture or\\Purchase};
-			\node (c)[align=left] at (-20:1.7cm) 	{Inventory};
-			\node (d)[align=left, NavyBlue] at (-90:1cm)		{Sale};
-			\node (e)[align=left] at (-160:1.7cm)	{Accounts\\Receivable};
-			\node (f)[align=left, NavyBlue] at (160:1.7cm)	{Payment};
-			
-			% Edges and Arcs
-			\draw[-, NavyBlue] (0,0) [partial ellipse=81:51:2cm and 1cm]; % The center of the ellipse is at (0,0)
-			\draw[->, InfoFlow] (0,0) [partial ellipse=25:-23:2cm and 1cm];
-			\draw[-, NavyBlue] (0,0) [partial ellipse=-48:-81:2cm and 1cm];
-			\draw[->, NavyBlue] (0,0) [partial ellipse=-99:-125:2cm and 1cm];
-			\draw[-, NavyBlue] (0,0) [partial ellipse=-161:-205:2cm and 1cm];
-			\draw[->, NavyBlue] (0,0) [partial ellipse=-225:-261:2cm and 1cm];
-		\end{tikzpicture}
-	\end{figure}
-\end{minipage}%
-\begin{minipage}{0.35\linewidth}
-	\textnohyphenation{The duration of this cycle can vary based on the company type, its policies, 
-	industry norms, market conditions, and the nature of its transactions.
-	\vspace{2mm}\\
-	Current assets are those that can be converted into cash within a company's operating cycle
-	or within a year, whichever is longer.}
-\end{minipage}%
-\vspace{1mm}
-{\centering
-\textnohyphenation{
-\begin{tabular}{|p{1.45cm}|p{3.1cm}|p{3.1cm}|}
-	\hline
-	\textbf{Factors} & \textbf{Example 1} & \textbf{Example 2} \\
-	\hline
-	Company Type & Local craft brewery & High-end furniture manufacturer \\
-	\hline
-	Company Policies & Offers extended credit terms to distributors to promote their brand & Has a strict return policy, allowing only exchanges within a short window \\
-	\hline
-	Industry Norms & Typically, the alcoholic beverage industry sees seasonal spikes in sales, especially during holidays & In luxury furniture, customers expect customization options, leading to longer production times \\
-	\hline
-	Market Conditions & Due to a recent health trend, there's a surge in demand for craft beverages with natural ingredients & The economy is in a downturn, and fewer consumers are investing in luxury goods \\
-	\hline
-	Nature of \newline its Transactions & Primarily engages in B2B transactions with retailers and restaurants, which often involve negotiated rates and bulk deals & Engages mainly in B2C transactions through their showroom and online store, with occasional bespoke orders from corporate clients \\
-	\hline
-\end{tabular}}}
-}
-
-\subsubsectionbox{Working Capital}{}{
-Foo
-}
-
-\subsubsectionbox{Ratios}{}{
-Foo
-}
-
-\subsubsectionbox{Inventory Turnover Revisited}{}{
-Foo
-}
-
-\subsection{Cost of Capital}
-
-\subsubsectionbox{Cost of Capital}{}{
-Foo
-}
-
-\subsubsectionbox{WACC}{chopra2016scm}{
-\vspace{-3mm}
-\begin{align*}
-	\shortintertext{
-	The weighted average cost of capital uses the following formula:
-	}
-	\text{WACC} = \frac{E}{E+D}(R_E + \beta\cdot \text{MRP}) + \frac{D}{E+D}R_D(1-t)
-\end{align*}
-Let's analyze this concept. First, notice the terms $\frac{E}{D+E}$ and $\frac{D}{E+D}$;
-they create a weighted measure of the individual contributions of $(R_f + \beta\cdot \text{MRP})$ and $R_b(1-t)$.
-}
-
-\subsection{Pratt: Chapters 6, 7)}
-
-\subsubsectionbox{Why 6?}{}{
-It seems traditional ratio analysis is out of date, it isn't very useful.\\
-Future cash flows is a more realisitc analysis\\
-Must include \textbf{The Statement of Cash Flows}
-}
-
-\subsubsectionbox{Why 7?}{}{
-Inventories ---> But this will be include in the next section.
 }
 
 
