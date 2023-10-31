@@ -152,7 +152,7 @@ In a manufacturing context, a supply chain can be seen as a network of suppliers
 \subsubsectionbox{Supply Chain Portfolios}{}{
 }
 
-\sectionbox{Accounting POV for Inventory}
+\sectionbox{Financial and Economic Analysis}
 
 \subsection{Capital and Financial Statements}
 
@@ -925,7 +925,7 @@ average cost, reflecting not just a simple average but a proportionate cost of g
 approach to inventory valuation.
 }
 
-\subsubsectionboxEDIT{FIFO, LIFO and the Weighted Average Methods}{pratt2010financial}{
+\subsubsectionbox{FIFO vs. LIFO}{pratt2010financial}{
 \vspace{-1mm}
 \begin{figure}[H]
 	\centering
@@ -968,14 +968,14 @@ approach to inventory valuation.
 			([yshift=1.25mm]26.north west) -- node[above, pos=0.6] {Second Sale 8 units}
 			([yshift=1.25mm]210.north east) |- ([yshift=1.25mm]33.north east);
 
-		\node[txt, above=1.35cm of 12.south] () {\textbf{Beginning inventory = 3}};
-		\node[txt, above=1.35cm of 25.south] () {\textbf{First purchase = 10}};
-		\node[txt, above=1.35cm of 33.south] () {\textbf{Second purchase = 5}};
+		\node[txt, above=1.20cm of 12.south] () {\textbf{Beginning inventory}\\(layer n-2)};
+		\node[txt, above=1.20cm of 25.south] () {\textbf{First Purchase}\\(layer n-1)};
+		\node[txt, above=1.20cm of 33.south] () {\textbf{Second Purchase}\\(layer n)};
 
 		\node[txt, left=0.45cm of 11.north west, anchor=east] () {\textbf{FIFO:}};
 
 		% ===========================================================================================
-		\node[Rect1, below=1cm of 11.south, anchor=north, fill=white] (l11) {};
+		\node[Rect1, below=1.5cm of 11.south, anchor=north, fill=white] (l11) {};
 		\node[Rect1, right=of l11.east, anchor=west, fill=white] (l12) {};
 		\node[Rect1, right=of l12.east, anchor=west, fill=\bcolor] (l13) {};
 
@@ -1006,42 +1006,67 @@ approach to inventory valuation.
 
 		\node[txt, left=0.45cm of l11.north west, anchor=east] () {\textbf{LIFO:}};
 
-		% ==============================================================================================
-		\node[Rect1, below=0.8cm of l12.south, anchor=north] (a1) {};
-		\node[txt, left=of a1.west, anchor=east] (3x) {$\frac{3}{13}\,$};
-		\node[txt, right=of a1.east, anchor=west] (plus10) {$\,+\,\frac{10}{13}$};
-		\node[Rect2, right=0.675cm of a1.south east, anchor=south west] (a2) {};
-		\node[txt, right=0.575cm of plus10.east, anchor=west] (equals) {$\,=$};
-		\node[Rect2, right=0.5cm of a2.south east, anchor=south west,
-			minimum height=5.54mm, fill=\acolor] (a3) {};
+		\path (31.south west) -- (l31.north west)
+			node[midway, yshift=1.25mm, xshift=-0.75mm, anchor=center, inner sep=0.2pt] 
+			(salesthreshold) {1st, 2nd sale threshold};
 
-		\node[txt, right=1.25cm of equals.east, anchor=west, align=left, Blue] (afirstsale)
-			{First sale \\$8$ units};
-		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Blue]
-			([xshift=0.65cm]equals.east) -- ([xshift=-0.5mm]afirstsale.west);
-
-		\node[Rect2, right=2.5cm of a3.south east, anchor=south west,
-			minimum height=5.54mm] (a4) {};
-		\def\yfix{-0.8mm}
-		\node[txt, left=of a4.west, anchor=east, yshift=\yfix] (5x) {$\frac{5}{10}\,$};
-		\node[txt, right=of a4.east, anchor=west, yshift=\yfix] (plus5) {$\,+\,\frac{5}{10}$};
-		\node[Rect3, right=0.675cm of a4.south east, anchor=south west] (a5) {};
-		\node[txt, right=0.575cm of plus5.east, anchor=west] (equals2) {$\,=$};
-		\node[Rect2, right=0.5cm of a5.south east, anchor=south west,
-			minimum height=6.77mm, fill=\bcolor] (a6) {};
-			
-		\node[txt, right=1.25cm of equals2.east, anchor=west, align=left, Red] (asecondsale)
-			{Second sale \\$8$ units};
-		\draw[-{Stealth[length=1mm]}, line width=0.25mm, Red]
-				([xshift=0.65cm]equals2.east) -- ([xshift=-0.5mm]asecondsale.west);
-
-		\node[txt, left=0.45cm of l11.north west, anchor=east, yshift=-1.4cm] () {\textbf{Average:}};
-
-		\draw[-{Stealth[length=0.4mm]}, line width=0.05mm]
-			([xshift=1mm, yshift=-0.5mm]a3.north east) -- ([xshift=-1mm, yshift=-0.5mm]a4.north west);
+		\draw[-, dash pattern=on1off1, line width=0.05mm] (salesthreshold.north) -- ++(0mm, 3.75mm);
+		\draw[-, dash pattern=on1off1, line width=0.05mm] (salesthreshold.south) -- ++(0mm,-7mm);
 
 	\end{tikzpicture}
 \end{figure}
+}
+
+\subsubsectionbox{Weighted Average Method}{}{
+
+}
+\subsubsectionbox{COGS Computation Example}{}{
+Consider the following scenario with beginning inventory $I_o$, purchases and sales during a period.
+The \textcolor{NavyBlue}{perpetual} system computes COGS in each transaction and the 
+\textcolor{BrickRed}{periodic} system computes COGS at the end of the whole period.
+Cost allocation is \textbf{LIFO}.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=2.25mm, auto, font=\tiny]
+		\tikzstyle{txt}=[draw=black, line width=0.1mm, rectangle, inner sep=1.5pt, fill=none, align=left];
+		\tikzset{MyArrow/.style ={-{Stealth[length=1mm]}, line width=0.1mm}}
+
+		% Purchases and Sales
+		\node[txt, draw=none, fill=none, inner sep=0pt] (purchases) {Purchases:};
+		\node[txt, left=of purchases.west, anchor=east] (i0) {75 @ \dollars 12};
+		\node[txt, draw=none, left=of i0.west, anchor=east] (beginning) {\textbf{$I_{o}:$}};
+		\node[txt, right=of purchases.east, anchor=west] (p1) {250 @ \dollars 12};
+		\node[txt, draw=none, left=of p1.north west, anchor=south east] (sales) {Sales:};
+		\node[txt, right=of p1.north east, anchor=south west] (s1) {300 @ \dollars 25};
+		\node[txt, right=of s1.south east, anchor=north west] (p2) {400 @ \dollars 14};
+		\node[txt, right=of p2.east, anchor=west] (p3) {225 @ \dollars 16};
+		\node[txt, right=of p3.north east, anchor=south west] (s2) {375 @ \dollars 26};
+		
+		% Perpetual LIFO
+		\node[txt, draw=none, above=of s1.north, anchor=south, align=right, NavyBlue] (perpetual1)
+			{250 @ \dollars 12 \\ \underline{50 @ \dollars 12} \\ \dollars 3600};
+		\draw[MyArrow, NavyBlue] (p1.north) |- ([yshift=-1mm]perpetual1.north west);
+		\draw[MyArrow, NavyBlue] (i0.north) |- (perpetual1.west);
+		\node[txt, draw=none, above=of s2.north, anchor=south, align=right, NavyBlue] (perpetual2)
+			{225 @ \dollars 16 \\ \underline{150 @ \dollars 14} \\ \dollars 5700};
+		\draw[MyArrow, NavyBlue] (p3.north) |- ([yshift=-1mm]perpetual2.north west);
+		\draw[MyArrow, NavyBlue] (p2.north) |- (perpetual2.west);
+
+		% Periodic LIFO
+		\node[txt, yshift=-3mm, draw=none, below=of s1.south, anchor= north, align=right, BrickRed] (periodic1)
+			{225 @ \dollars 16 \\ \underline{75 @ \dollars 14} \\ \dollars 4650};
+		\draw[MyArrow, BrickRed] (p3.south) |- ([yshift=-1.2mm]periodic1.north east);
+		\draw[MyArrow, BrickRed] ([xshift=-0.5mm]p2.south) |- (periodic1.east);
+		\node[txt, yshift=-4.5mm, draw=none, below=of s2.south, anchor= north, align=right, BrickRed] (periodic2)
+			{325 @ \dollars 14 \\ \underline{50 @ \dollars 12} \\ \dollars 5150};
+		\draw[MyArrow, BrickRed]
+			([xshift=0.5mm]p2.south) |- ([yshift=-1.2mm]periodic2.north west);
+		\draw[MyArrow, BrickRed]
+			(p1.south) |- ([xshift=0.5mm, yshift=-1cm]p2.south) |- (periodic2.west);
+	\end{tikzpicture}
+\end{figure}%
+The \textcolor{NavyBlue}{Perpetual LIFO COGS is \dollars 9300} whereas 
+the \textcolor{BrickRed}{Periodic LIFO COGS is \dollars 9800}.
 }
 
 \subsection{More on the LIFO Method}
@@ -1091,6 +1116,10 @@ comparisons between companies with different accounting methods. It indicates in
 balance sheet and the cumulative reduction in taxable income for the firm.
 }
 
+\subsubsectionbox{Dollar Value LIFO}{}{
+Foo
+}
+
 \subsubsectionbox{LIFO and Just-in-Time Inventory Management}{kinney2004jit}{
 \cite{kinney2004jit} observed the following behaviors related to Just-In-Time inventory management, LIFO reserve dynamics, 
 and financial decision-making in firms during the 1980s and 1990s, a period in which JIT gained popularity:
@@ -1108,55 +1137,6 @@ suggesting they use JIT-induced LIFO liquidations to manage debt-related constra
 \textbf{Tax rates influencing JIT adoption:} In high-tax scenarios, the likelihood of JIT adoption diminishes for 
 firms with large LIFO reserves, as JIT's low inventory levels limit the tax benefits of LIFO reserves, and their 
 liquidation can lead to unfavorable tax consequences.
-}
-
-\subsubsectionbox{COGS Computation Example}{}{
-Consider the following scenario with beginning inventory $I_o$, purchases and sales during a period.
-The \textcolor{NavyBlue}{perpetual} system computes COGS in each transaction and the 
-\textcolor{BrickRed}{periodic} system computes COGS at the end of the whole period.
-Cost allocation is \textbf{LIFO}.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance=2.25mm, auto, font=\tiny]
-		\tikzstyle{txt}=[draw=black, line width=0.1mm, rectangle, inner sep=1.5pt, fill=none, align=left];
-		\tikzset{MyArrow/.style ={-{Stealth[length=1mm]}, line width=0.1mm}}
-
-		% Purchases and Sales
-		\node[txt, draw=none, fill=none, inner sep=0pt] (purchases) {Purchases:};
-		\node[txt, left=of purchases.west, anchor=east] (i0) {75 @ \dollars 12};
-		\node[txt, draw=none, left=of i0.west, anchor=east] (beginning) {\textbf{$I_{o}:$}};
-		\node[txt, right=of purchases.east, anchor=west] (p1) {250 @ \dollars 12};
-		\node[txt, draw=none, left=of p1.north west, anchor=south east] (sales) {Sales:};
-		\node[txt, right=of p1.north east, anchor=south west] (s1) {300 @ \dollars 25};
-		\node[txt, right=of s1.south east, anchor=north west] (p2) {400 @ \dollars 14};
-		\node[txt, right=of p2.east, anchor=west] (p3) {225 @ \dollars 16};
-		\node[txt, right=of p3.north east, anchor=south west] (s2) {375 @ \dollars 26};
-		
-		% Perpetual LIFO
-		\node[txt, draw=none, above=of s1.north, anchor=south, align=right, NavyBlue] (perpetual1)
-			{250 @ \dollars 12 \\ \underline{50 @ \dollars 12} \\ \dollars 3600};
-		\draw[MyArrow, NavyBlue] (p1.north) |- ([yshift=-1mm]perpetual1.north west);
-		\draw[MyArrow, NavyBlue] (i0.north) |- (perpetual1.west);
-		\node[txt, draw=none, above=of s2.north, anchor=south, align=right, NavyBlue] (perpetual2)
-			{225 @ \dollars 16 \\ \underline{150 @ \dollars 14} \\ \dollars 5700};
-		\draw[MyArrow, NavyBlue] (p3.north) |- ([yshift=-1mm]perpetual2.north west);
-		\draw[MyArrow, NavyBlue] (p2.north) |- (perpetual2.west);
-
-		% Periodic LIFO
-		\node[txt, yshift=-3mm, draw=none, below=of s1.south, anchor= north, align=right, BrickRed] (periodic1)
-			{225 @ \dollars 16 \\ \underline{75 @ \dollars 14} \\ \dollars 4650};
-		\draw[MyArrow, BrickRed] (p3.south) |- ([yshift=-1.2mm]periodic1.north east);
-		\draw[MyArrow, BrickRed] ([xshift=-0.5mm]p2.south) |- (periodic1.east);
-		\node[txt, yshift=-4.5mm, draw=none, below=of s2.south, anchor= north, align=right, BrickRed] (periodic2)
-			{325 @ \dollars 14 \\ \underline{50 @ \dollars 12} \\ \dollars 5150};
-		\draw[MyArrow, BrickRed]
-			([xshift=0.5mm]p2.south) |- ([yshift=-1.2mm]periodic2.north west);
-		\draw[MyArrow, BrickRed]
-			(p1.south) |- ([xshift=0.5mm, yshift=-1cm]p2.south) |- (periodic2.west);
-	\end{tikzpicture}
-\end{figure}%
-The \textcolor{NavyBlue}{Perpetual LIFO COGS is \dollars 9300} whereas 
-the \textcolor{BrickRed}{Periodic LIFO COGS is \dollars 9800}.
 }
 
 
