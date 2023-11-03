@@ -559,10 +559,10 @@ Foo
 	\shortintertext{
 	The weighted average cost of capital uses the following formula:
 	}
-	\text{WACC} = \frac{E}{E+D}(R_E + \beta\cdot \text{MRP}) + \frac{D}{E+D}R_D(1-t)
+	WACC = \frac{E}{E+D}(R_E + \beta\cdot MRP) + \frac{D}{E+D}R_D(1-t)
 \end{align*}
-Let's analyze this concept. First, notice the terms $\frac{E}{D+E}$ and $\frac{D}{E+D}$;
-they create a weighted measure of the individual contributions of $(R_f + \beta\cdot \text{MRP})$ and $R_b(1-t)$.
+Let's analyze this concept. First, notice the terms $\displaystyle\frac{E}{D+E}$ and $\displaystyle\frac{D}{E+D}$;
+they create a weighted measure of the individual contributions of $(R_f + \beta\cdot MRP)$ and $R_b(1-t)$.
 }
 
 \subsection{Economic and Investment Analysis}
@@ -892,7 +892,7 @@ constraints or specific company policies.
 		}
 		\draw[BrickRed] (0, \yvar+0.2mm) -- (7.5, \yvar+0.25mm);
 
-		\node[align=left] () at (3.75, 1.6) {$\textbf{COGS}_{t} = I_{t-1}+ P_{t} - I_{t}$};
+		\node[align=left] () at (3.75, 1.6) {$COGS_{t} = I_{t-1}+ P_{t} - I_{t}$};
 
 	\end{tikzpicture}
 \end{figure}%
@@ -1122,8 +1122,8 @@ balance sheet and the cumulative reduction in taxable income for the firm.
 
 \subsubsectionbox{Dollar Value LIFO}{}{
 Foo\\
-$ \frac{\text{Total Inventory Cost}_{t}}{\text{Total Items}_{t}} = c_{t} $\\
-$\text{Base Year Cost}_{t} = \frac{c_{t}}{c_{t-1}}$
+$ \displaystyle\frac{\text{Total Inventory Cost}_{t}}{\text{Total Items}_{t}} = c_{t} $\\
+$\text{Base Year Cost}_{t} = \displaystyle\frac{c_{t}}{c_{t-1}}$
 }
 
 \subsubsectionbox{LIFO and Just-in-Time Inventory Management}{kinney2004jit}{
@@ -1179,7 +1179,7 @@ Trade-offs between complexity and ease of understanding/communication/implementa
 
 \subsection{Inventory Costs}
 
-\subsubsectionbox{Unit Cost: $\boldsymbol{c \to \nicefrac{\$}{\text{unit}}}$}
+\subsubsectionbox{Unit Cost: $\boldsymbol{c} \to \nicefrac{\$}{\text{unit}}$}
 {kcd2023, silver2016inventory, cachon2018matching, schonsleben2022handbook}{
 The cost of obtaining one unit of a SKU, either through procurement or production.
 \breakspace
@@ -1268,8 +1268,8 @@ depreciation associated with the item.
 Furthermore, consider the scenario where storage capacity is limited; if Q exceeds this threshold, an additional
 warehouse is required, incurring a fixed cost. This scenario can be modeled using a piecewise function, for instance:
 \[ \text{Total Holding Cost} = \begin{cases}
-	Q(rc + h) 						&,\text{for} \; Q \leq \text{threshold}\\
-	Q(rc + h) + \text{Fixed Cost} 	&,\text{for} \; Q > \text{threshold}
+	Q(rc + h) 						&,\quad \text{for} \; Q \leq \text{threshold}\\
+	Q(rc + h) + \text{Fixed Cost} 	&,\quad \text{for} \; Q > \text{threshold}
 \end{cases} \]
 Given the complexity of the holding cost, it's advisable to model it in collaboration with
 Finance/Accounting specialists.
@@ -1286,9 +1286,9 @@ Foo
 
 \subsubsectionbox{Total Cost \& Total Relevant Cost}{}{
 
-\[ \text{TC} = \text{Purchase Cost} + \text{Ordering Cost} + \text{Holding Cost} + \text{Shortage Cost} \]
+\[ TC = Purchase\;Cost + Ordering\;Cost + Holding\;Cost + Shortage\;Cost \]
 
-\[ TC = cD + c_{t}\frac{D}{Q} + c_{e}\frac{Q}{2} + c_{s}E[\text{Units Short}] \]
+\[ TC = cD + c_{t}\frac{D}{Q} + c_{e}\frac{Q}{2} + c_{s}E[Units\;Short] \]
 
 Procurement activities have influence on the Purchase Cost, while Inventory Management activities have 
 influence on the other costs.
@@ -1362,9 +1362,9 @@ The optimal policy becomes ordering $Q^*$ units of inventory every $T^*$ units o
 			\draw (0,0) foreach \x in {1,...,\lastx} {-- ++(0,1) -- ++(1,-1)} [blue, line width=0.2mm];
 			\draw (0,0.5) -- (\lastx,0.5) [darkblue, dashed, line width=0.02mm];
 			\draw [pen colour={annot_color},decorate,decoration={calligraphic brace,mirror,amplitude=5pt,raise=2pt},xshift=0pt,yshift=0pt]
-			(1,0) -- (2,0) node [annot_color,midway,yshift=-12.5pt, line width=5mm] {\tiny $T^*=\frac{Q^*}{D}$};
+			(1,0) -- (2,0) node [annot_color,midway,yshift=-12.5pt, line width=5mm] {\tiny $\displaystyle T^*=\frac{Q^*}{D}$};
 			\draw (0,1) node[annot_color, left]{\tiny $Q^*$};
-			\draw (0,0.5) node[annot_color, left]{\tiny $\frac{Q^*}{2}$};
+			\draw (0,0.5) node[annot_color, left]{\tiny $\displaystyle\frac{Q^*}{2}$};
 			\draw (0.45,0.6) node[annot_color, above]{\tiny $D$};
 		\end{axis}
 		\end{tikzpicture}

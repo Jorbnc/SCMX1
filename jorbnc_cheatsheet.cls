@@ -40,6 +40,7 @@
 \RequirePackage{pifont} % \ding{} symbol in the itemize environment
 \RequirePackage{ragged2e}
 \RequirePackage{textcomp} % For the (R) symbol of text registered ---> \textregistered
+\RequirePackage{mathpazo}
 
 % ===== COLORS ========================================================================================
 \RequirePackage[dvipsnames]{xcolor} % Extra colors https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
@@ -107,6 +108,8 @@
     <8.5-9.5> rm-lmr9  <9.5->    rm-lmr10
     }{}
 \makeatother
+
+%\setmathrm{Calibri}
 
 % \pagestyle{empty}
 % \abovedisplayskip=1pt\belowdisplayskip=0pt\abovedisplayshortskip=0pt\belowdisplayshortskip=0pt
