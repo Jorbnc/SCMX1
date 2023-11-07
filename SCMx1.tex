@@ -1075,6 +1075,12 @@ the \textcolor{BrickRed}{Periodic LIFO COGS is \dollars 9800}.
 
 \subsection{More on the LIFO Method}
 
+\subsubsectionbox{The Dollar Value LIFO Method}{}{
+Foo\\
+$ \displaystyle\frac{\text{Total Inventory Cost}_{t}}{\text{Total Items}_{t}} = c_{t} $\\
+$\text{Base Year Cost}_{t} = \displaystyle\frac{c_{t}}{c_{t-1}}$
+}
+
 \subsubsectionboxEDIT{LIFO Liquidation}{cfiLIFOliquidation, kinney2004jit, zhang2014repealing}{
 This occurs when older, lower-cost LIFO inventory layers are sold, often due to cash flow issues, like shortages
 or the need to smooth earnings variability$^{1}$, demand spikes, supply shortages, or the disposal of outdated stock. 
@@ -1118,12 +1124,6 @@ higher Inventory Turnover ratios, which may overstate a company's effectiveness 
 The \textbf{LIFO Reserve}, representing the difference between FIFO and LIFO inventory valuations, facilitates 
 comparisons between companies with different accounting methods. It indicates inventory undervaluation on the
 balance sheet and the cumulative reduction in taxable income for the firm.
-}
-
-\subsubsectionbox{Dollar Value LIFO}{}{
-Foo\\
-$ \displaystyle\frac{\text{Total Inventory Cost}_{t}}{\text{Total Items}_{t}} = c_{t} $\\
-$\text{Base Year Cost}_{t} = \displaystyle\frac{c_{t}}{c_{t-1}}$
 }
 
 \subsubsectionbox{LIFO and Just-in-Time Inventory Management}{kinney2004jit}{
@@ -1317,11 +1317,10 @@ en Silver, Chopra, Nahmias, etc...Hay muchas variaciones, pero incluir las mas f
 	\shortintertext{From the first-order optimal condition (first derivative equals zero), we have}
 		0 &= \diff{}{Q}\left(\frac{c_{t}D}{Q}\right) + \diff{}{Q}\left(\frac{c_{e}Q}{2}\right) \\
 		0 &= -\frac{c_{t}D}{Q^2}+\frac{c_{e}}{2} \\
-		\Aboxed{Q^{*} &= \sqrt{\frac{2c_{t}D}{c_e}}}
-\end{align*}
-
-The $EOQ$ or $Q^*$ gives the minimum $TRC$ under deterministic conditions:
-
+		\Aboxed{Q^{*} &= \sqrt{\frac{2c_{t}D}{c_e}}} \\
+	\shortintertext{The $EOQ$ or $Q^*$ gives the minimum $TRC$ under deterministic conditions:}
+\end{align*}%
+\vspace{-0.75cm}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
