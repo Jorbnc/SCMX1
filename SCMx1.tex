@@ -1204,34 +1204,51 @@ spent on that specific SKU to prepare it for either internal or external use.
 }
 
 
-\subsubsectionboxEDIT{Ordering/Setup Cost: $\boldsymbol{c_t} \to \nicefrac{\$}{\text{order}}$}{}{
-\Red{Refine this with GPT-:}
+\subsubsectionboxEDIT{Ordering or Setup Cost: $\boldsymbol{c_t} \to \nicefrac{\$}{\text{order}}$}{}{
+
+It's a fixed expense incurred with each batch production or lot purchase. 
+Its defining characteristic in modeling is that it remains constant, irrespective of the lot size $Q$.
+Accordingly, the total setup cost is solely based on the number of replenishments throught the unit time:
+
+\[ \text{Total Setup Cost} = c_t\frac{D}{Q} \]
+
+\textbf{FIXED COSTS OF PURCHASING:}
 \breakspace
-Also known as ordering cost. Represents a fixed cost incurred each time a batch is produced or a lot is purchased.
-The main idea is that this cost is independent of the lot size. Let's say our lot size is Q. That is, we will 
-always replenish a quantity Q of inventory. Then, throughout the unit time we'll have to replenish D/Q times.
-Thefore, the total setup cost will be the individual setup cost times D/Q.
+\textbf{Administrative Costs:} Communication costs, procurement software/systems (usage, maintenance, training),
+paperwork, invoicing, etc.
+When a buyer is engaged in the ordering process, their time investment translates into a direct cost.
+However, theoretically, this cost is negligible if the buyer is idle. 
 \breakspace
-Let's explore what could be the components of the individual setup cost:
+\textbf{Receiving Costs:} Material handling, storage preparation, inspection, update of inventory records.
 \breakspace
-When purchasing inventory: Fixed administrative costs: internal processes, paperwork, invoicing.
-If the buyer is busy, then their time required to place the order has to be included as a cost.
-If the buyer is idle, theoretically, no cost is incurred. We also have a fixed cost of receiving, composed of 
-material handling and inspection costs, and the cost of updating inventory
-records. In realisic scenarios, however, this component is rather lot-size-dependent.
-Inspecting 100 items is more costly than inspecting 10 items. We can say the same for the transportation that 
-the purchasing requires. Transportation could for instance have a fixed component and
-a variable component that is lot-size-dependent. It's cost function may even be defined as a piecewise function, 
-that is, if Q is greater than some threshold, another vehicle could be required, increasing the fixed component.
-For simplicity, let's ignore the piecewise behaviour and consider only that there's a variable component.
- 
- $c_t = c_{t_v}Q + c_{t_f}$
- 
-Notice that [...] this is why transportation and material handling costs were already included in $c$
+\textbf{Transportation Costs:} Fixed salaries or rates, maintenance and depreciation, fuel.
 \breakspace
-What about the setup cost in a manufacturing context? Similar to the buyer case, here we could have a 
+In practical situations, however, both receiving and transportation expenses are influenced by the size of 
+the lot. For instance, handling and transporting large quantities incurs more costs than a smaller lots.
+This implies that these costs comprise both a fixed element and a variable element that escalates with the lot 
+size. The resulting setup cost would look like:
+
+\[c_t = c_{t_v}Q + c_{t_f}\]
+
+Notice that the $Q$ in the variable component would be cancelled out when multiplying by $\nicefrac{D}{Q}$. 
+This is why costs like transportation and material handling were already included in the unit cost $c$. However,
+this is assumes that the factor $c_{t_v}$ is unique throughout the year.
+
+\breakspace
+
+These costs could be even more complex, potentially adopting a piecewise function approach. For instance, 
+surpassing a certain quantity threshold might require an additional vehicle or labor, thereby also augmenting the
+fixed cost component, creating a scenario in which the whole setup cost is variable.
+
+\[ c_t = \begin{cases}
+	c_{t_v}Q + K_1) 	&,\quad \text{for} \; Q \leq \text{threshold}\\
+	c_{t_v}Q + K_2) 	&,\quad \text{for} \; Q > \text{threshold}
+\end{cases} \]
+
+\textbf{FIXED COSTS OF MANUFACTURING:}
+Similar to the buyer case, here we could have a 
 machinist that is in charge of setting machines up, and could also be busy or idle. There's a setup learning
-period in which a new production setup could produce items at a slower pace or low quality, so this cost should 
+period in which a new production setup could produce items at a slower pace or low quality, so these factors should 
 also be included. Opportunity Costs: If a factory is running at full capacity, every minute of production time is
 valuable because it could be use to produce items that already generate revenue.
 When the production line is halted to set up for another item, the company loses the opportunity to
