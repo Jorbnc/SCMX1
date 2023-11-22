@@ -1204,7 +1204,9 @@ spent on that specific SKU to prepare it for either internal or external use.
 }
 
 
-\subsubsectionboxEDIT{Ordering or Setup Cost: $\boldsymbol{c_t} \to \nicefrac{\$}{\text{order}}$}{}{
+\subsubsectionbox{Ordering or Setup Cost: $\boldsymbol{c_t} \to \nicefrac{\$}{\text{order}}$}{
+	2008building, silver2016inventory, chopra2016scm, cachon2018matching,  
+}{
 
 It's a fixed expense incurred with each batch production or lot purchase. 
 Its defining characteristic in modeling is that it remains constant, irrespective of the lot size $Q$.
@@ -1214,47 +1216,51 @@ Accordingly, the total setup cost is solely based on the number of replenishment
 
 \textbf{FIXED COSTS OF PURCHASING:}
 \breakspace
-\textbf{Administrative Costs:} Communication costs, procurement software/systems (usage, maintenance, training),
-paperwork, invoicing, etc.
-When a buyer is engaged in the ordering process, their time investment translates into a direct cost.
-However, theoretically, this cost is negligible if the buyer is idle. 
+\textbf{Administrative Costs:} Buyer's time, communication costs, procurement software (usage, maintenance, training),
+paperwork, invoicing.
 \breakspace
 \textbf{Receiving Costs:} Material handling, storage preparation, inspection, update of inventory records.
 \breakspace
 \textbf{Transportation Costs:} Fixed salaries or rates, maintenance and depreciation, fuel.
 \breakspace
 In practical situations, however, both receiving and transportation expenses are influenced by the size of 
-the lot. For instance, handling and transporting large quantities incurs more costs than a smaller lots.
+the lot. For instance, handling and transporting large quantities incurs more costs than smaller lots.
 This implies that these costs comprise both a fixed element and a variable element that escalates with the lot 
-size. The resulting setup cost would look like:
+size. The resulting setup cost would look something like:
 
-\[c_t = c_{t_v}Q + c_{t_f}\]
+\[c_t = c_{t_{v}}Q + c_{t_f}\]
 
 Notice that the $Q$ in the variable component would be cancelled out when multiplying by $\nicefrac{D}{Q}$. 
-This is why costs like transportation and material handling were already included in the unit cost $c$. However,
-this is assumes that the factor $c_{t_v}$ is unique throughout the year.
+This is why costs like transportation and material handling were already included in the unit cost $c$.
+However, this assumes that the factor $c_{t_{v}}$​ does not benefit from economies of scale and remains constant 
+over the year.
 
 \breakspace
 
-These costs could be even more complex, potentially adopting a piecewise function approach. For instance, 
-surpassing a certain quantity threshold might require an additional vehicle or labor, thereby also augmenting the
-fixed cost component, creating a scenario in which the whole setup cost is variable.
+The complexity of ordering costs may increase, potentially requiring a piecewise function model.
+When certain quantity thresholds are exceeded, additional resources such as extra vehicles or labor might be 
+needed. This introduces step-fixed costs, which remain constant within specific ranges but increase at these 
+thresholds. Let $K_i$ be the fixed cost component for a range, then:
 
 \[ c_t = \begin{cases}
-	c_{t_v}Q + K_1) 	&,\quad \text{for} \; Q \leq \text{threshold}\\
-	c_{t_v}Q + K_2) 	&,\quad \text{for} \; Q > \text{threshold}
+	c_{t_v}Q + K_1 	&,\quad \text{for} \; Q < \text{threshold}\\
+	c_{t_v}Q + K_2 	&,\quad \text{for} \; Q \geq \text{threshold}
 \end{cases} \]
+}
 
-\textbf{FIXED COSTS OF MANUFACTURING:}
-Similar to the buyer case, here we could have a 
-machinist that is in charge of setting machines up, and could also be busy or idle. There's a setup learning
-period in which a new production setup could produce items at a slower pace or low quality, so these factors should 
-also be included. Opportunity Costs: If a factory is running at full capacity, every minute of production time is
-valuable because it could be use to produce items that already generate revenue.
-When the production line is halted to set up for another item, the company loses the opportunity to
-produce and sell goods during that time, resulting in a loss of potential revenue. 
-This is the opportunity cost of setup time.
-
+\subsubsectionbox{Manufacturing Setup Costs}{silver2016inventory}{
+Similar to the buyer scenario in purchasing, the setup cost in manufacturing also involves the machinist's time 
+for machine setup. This cost varies significantly based on the machinist's availability – higher if they are 
+diverted from other busy tasks, and lower if they are otherwise idle.
+\breakspace
+During the setup learning period, a new production setup may initially lead to slower production rates or lower 
+quality outputs. This phase not only affects direct production efficiency but also incurs additional costs 
+related to training and heightened supervision.
+\breakspace
+Opportunity Costs play a critical role: When a factory running at full capacity pauses production for setup, 
+it loses potential revenue that could be generated from regular operations. This loss extends beyond immediate 
+financial impact to potential delays in order fulfillment and potential long-term effects on customer 
+satisfaction, underlining the broader implications of setup time as an opportunity cost.
 }
 
 \subsubsectionbox{Cost components of holding inventory}{
@@ -1321,8 +1327,8 @@ depreciation associated with the item.
 Furthermore, consider the scenario where storage capacity is limited; if Q exceeds this threshold, an additional
 warehouse is required, incurring a fixed cost. This scenario can be modeled using a piecewise function, for instance:
 \[ \text{Total Holding Cost} = \begin{cases}
-	Q(rc + h) 						&,\quad \text{for} \; Q \leq \text{threshold}\\
-	Q(rc + h) + \text{Fixed Cost} 	&,\quad \text{for} \; Q > \text{threshold}
+	Q(rc + h) 						&,\quad \text{for} \; Q < \text{threshold}\\
+	Q(rc + h) + \text{Fixed Cost} 	&,\quad \text{for} \; Q \geq \text{threshold}
 \end{cases} \]
 Given the complexity of the holding cost, it's advisable to model it in collaboration with
 Finance/Accounting specialists.
