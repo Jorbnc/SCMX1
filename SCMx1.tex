@@ -1184,13 +1184,13 @@ Trade-offs between complexity and ease of understanding/communication/implementa
 The cost of obtaining one unit of a SKU, either through procurement or production.
 \breakspace
 \textbf{For merchants}:
-It's the sum of the purchase price paid to the supplier, combined with additional costs necessary 
-for preparing the product for sale, such as packaging and labeling. Typically, it also incorporates 
-per-unit costs related to freight transportation and material handling, like loading and unloading.
+The unit cost encompasses the purchase price from suppliers, plus any additional costs necessary for preparing 
+the product for sale, such as packaging and labeling. It often also covers per-unit charges for freight 
+transportation and material handling activities, like loading and unloading.
 \breakspace
 \textbf{For producers}:
-It's the total unitary production cost. Similarly, it can also include material handling and freight
-transportation costs incurred from production-related activities.
+The unit cost extends beyond the mere calculation of raw materials. It encompasses the comprehensive unitary 
+production cost, which includes direct labor and overheads.
 Determining the unit value in manufacturing can be more challenging  due to its intricate nature.
 \breakspace
 In basic inventory models, the unit cost is typically considered lot-size independent for simplicity.
@@ -1204,7 +1204,40 @@ spent on that specific SKU to prepare it for either internal or external use.
 }
 
 
-\subsubsectionbox{Ordering/Setup Cost: $\boldsymbol{c_t} \to \nicefrac{\$}{\text{order}}$}{}{
+\subsubsectionboxEDIT{Ordering/Setup Cost: $\boldsymbol{c_t} \to \nicefrac{\$}{\text{order}}$}{}{
+\Red{Refine this with GPT-:}
+\breakspace
+Also known as ordering cost. Represents a fixed cost incurred each time a batch is produced or a lot is purchased.
+The main idea is that this cost is independent of the lot size. Let's say our lot size is Q. That is, we will 
+always replenish a quantity Q of inventory. Then, throughout the unit time we'll have to replenish D/Q times.
+Thefore, the total setup cost will be the individual setup cost times D/Q.
+\breakspace
+Let's explore what could be the components of the individual setup cost:
+\breakspace
+When purchasing inventory: Fixed administrative costs: internal processes, paperwork, invoicing.
+If the buyer is busy, then their time required to place the order has to be included as a cost.
+If the buyer is idle, theoretically, no cost is incurred. We also have a fixed cost of receiving, composed of 
+material handling and inspection costs, and the cost of updating inventory
+records. In realisic scenarios, however, this component is rather lot-size-dependent.
+Inspecting 100 items is more costly than inspecting 10 items. We can say the same for the transportation that 
+the purchasing requires. Transportation could for instance have a fixed component and
+a variable component that is lot-size-dependent. It's cost function may even be defined as a piecewise function, 
+that is, if Q is greater than some threshold, another vehicle could be required, increasing the fixed component.
+For simplicity, let's ignore the piecewise behaviour and consider only that there's a variable component.
+ 
+ $c_t = c_{t_v}Q + c_{t_f}$
+ 
+Notice that [...] this is why transportation and material handling costs were already included in $c$
+\breakspace
+What about the setup cost in a manufacturing context? Similar to the buyer case, here we could have a 
+machinist that is in charge of setting machines up, and could also be busy or idle. There's a setup learning
+period in which a new production setup could produce items at a slower pace or low quality, so this cost should 
+also be included. Opportunity Costs: If a factory is running at full capacity, every minute of production time is
+valuable because it could be use to produce items that already generate revenue.
+When the production line is halted to set up for another item, the company loses the opportunity to
+produce and sell goods during that time, resulting in a loss of potential revenue. 
+This is the opportunity cost of setup time.
+
 }
 
 \subsubsectionbox{Cost components of holding inventory}{
@@ -1236,8 +1269,8 @@ especially in industries with rapid innovation cycles.
 Moreover, shrinkage, resulting from items being lost, stolen, or damaged, 
 further erodes the inventory's value.
 \breakspace
-\textbf{Insurance Premiums}, which safeguard against theft or damage, and \textbf{Taxation Expenses}, based on the inventory's 
-value and location, may also be included.
+\textbf{Insurance Premiums}, which safeguard against theft or damage, and \textbf{Taxation Expenses}, based on 
+the inventory's value and location, may also be included.
 }
 
 \subsubsectionbox{Holding Cost: $\boldsymbol{c_e} \to \nicefrac{\$}{(\text{unit}\times\text{period})}$}
@@ -1289,7 +1322,7 @@ Foo
 
 \subsubsectionbox{Total Cost \& Total Relevant Cost}{}{
 
-\[ TC = Purchase\;Cost + Ordering\;Cost + Holding\;Cost + Shortage\;Cost \]
+\[ TC = Total\;Material\;Cost + Total\;Setup\;Cost + Total\;Holding\;Cost + Total\;Shortage\;Cost \]
 
 \[ TC = cD + c_{t}\frac{D}{Q} + c_{e}\frac{Q}{2} + c_{s}E[Units\;Short] \]
 
